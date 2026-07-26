@@ -3,13 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WatchFacts | Luxury Non-Watch Exchange & Analytics Marketplace</title>
+  <title>WatchFacts | Luxury Non-Watch Exchange & Group Posting Instructions</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Top Announcement & App Switcher Bar -->
+  <div class="top-nav-bar" style="background: rgba(17, 24, 39, 0.95); border-bottom: 1px solid rgba(245, 158, 11, 0.3); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px);">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="background: rgba(245,158,11,0.2); color: #f59e0b; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase;">WatchFacts Ecosystem</span>
+      <span style="color: #9ca3af; font-size: 13px;">Non-Watch Luxury Marketplace & Seller Analytics</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <!-- Direct link back to main Appraisal & Fast Posting App -->
+      <a href="/" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);">
+        ⚡ Fast Posting & Watch App
+      </a>
+      <button id="btn-group-instructions-top" style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 16px; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+        📋 Group Posting Guide
+      </button>
+    </div>
+  </div>
+
   <!-- Header & Navigation -->
-  <header>
+  <header style="margin-top: 10px;">
     <div class="nav-container">
       <div class="logo-group">
         <div class="logo-icon">WF</div>
@@ -29,6 +46,20 @@
     <h1 class="hero-title">Non-Watch Luxury Marketplace & Seller Intelligence</h1>
     <p class="hero-subtitle">Real-time normalized reports, comparative color variant analytics, and direct seller tracking for Hermès, Chanel, Jewelry, and Luxury Accessories.</p>
     
+    <!-- Prominent Group Posting Banner inside Marketplace -->
+    <div style="background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(16,185,129,0.08)); border: 1px solid rgba(245,158,11,0.3); border-radius: 16px; padding: 20px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;">
+      <div>
+        <div style="display: inline-block; padding: 3px 10px; background: rgba(245,158,11,0.2); color: #f59e0b; border-radius: 12px; font-size: 11px; font-weight: 700; margin-bottom: 8px;">
+          PRO TIP: HOW TO POST NON-WATCH ITEMS IN TRADE GROUPS
+        </div>
+        <h3 style="color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 4px;">Selling or Buying Hermès, Chanel, or Jewelry in WhatsApp & Telegram?</h3>
+        <p style="color: #9ca3af; font-size: 13px; margin: 0;">Learn how to format WTS/WTB posts with exact brand, leather, year, stamp, and location for 100% AI recognition and instant buyer matches.</p>
+      </div>
+      <button id="btn-banner-guide" style="background: #f59e0b; color: #111827; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 13px; border: none; cursor: pointer; white-space: nowrap;">
+        View Non-Watch Posting Guide & Templates →
+      </button>
+    </div>
+
     <div class="metrics-grid">
       <div class="metric-card">
         <div class="metric-label">Total Inventory Value</div>
@@ -83,6 +114,16 @@
   <main class="catalog-grid" id="catalog-grid">
     <!-- Rendered dynamically by app.js -->
   </main>
+
+  <!-- Sticky Bottom Navigation Bar for Quick App Switching & Posting Guide -->
+  <div style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(17, 24, 39, 0.95); border-top: 1px solid rgba(245, 158, 11, 0.3); padding: 12px 24px; display: flex; justify-content: center; align-items: center; gap: 16px; z-index: 90; backdrop-filter: blur(16px);">
+    <a href="/" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; padding: 10px 20px; border-radius: 12px; font-weight: 700; font-size: 13px; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(245,158,11,0.3);">
+      ⚡ Open Fast Posting & Watch App
+    </a>
+    <button id="btn-bottom-guide" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 10px 20px; border-radius: 12px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+      📋 How to Post Non-Watches in Groups
+    </button>
+  </div>
 
   <!-- Item Detail & Seller Intelligence Modal -->
   <div class="modal-overlay" id="modal-overlay">
@@ -153,6 +194,64 @@
           </div>
           <a href="#" target="_blank" class="btn-whatsapp" id="modal-wa-btn">
             💬 WhatsApp Seller
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-Watch Group Posting Instructions Modal -->
+  <div class="modal-overlay" id="guide-modal-overlay">
+    <div class="modal-card" style="max-width: 700px; max-height: 85vh; overflow-y: auto;">
+      <button class="modal-close" id="guide-modal-close">&times;</button>
+      
+      <div style="padding: 24px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <span style="background: rgba(245,158,11,0.2); color: #f59e0b; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">WHATSAPP & TELEGRAM GUIDE</span>
+        </div>
+        <h2 style="color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 8px;">How to Post Non-Watch Luxury Items in Trade Groups</h2>
+        <p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Use these standard formats to post Handbags, Fine Jewelry, and Accessories in wholesale trade groups. Our AI parser automatically reads these tags for instant buyer matching.</p>
+
+        <!-- Template 1: Hermès Birkin -->
+        <div style="background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="color: #f59e0b; font-size: 12px; font-weight: 700;">HERMÈS HANDBAG TEMPLATE (WTS)</span>
+            <button onclick="navigator.clipboard.writeText('WTS Hermes Birkin 25 Togo Sesame Gold Hardware\nYear: 2026 U Stamp\nCondition: Store Fresh / Full Set\nPrice: USD 33,500\nLocation: Hong Kong / Ready to Ship')" style="background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.4); padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">Copy Template</button>
+          </div>
+          <pre style="color: #e5e7eb; font-family: monospace; font-size: 12px; white-space: pre-wrap; margin: 0; background: #111827; padding: 12px; border-radius: 8px;">WTS Hermes Birkin 25 Togo Sesame Gold Hardware
+Year: 2026 U Stamp
+Condition: Store Fresh / Full Set
+Price: USD 33,500
+Location: Hong Kong / Ready to Ship</pre>
+        </div>
+
+        <!-- Template 2: Chanel Classic Flap -->
+        <div style="background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 16px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="color: #f59e0b; font-size: 12px; font-weight: 700;">CHANEL HANDBAG TEMPLATE (WTB)</span>
+            <button onclick="navigator.clipboard.writeText('WTB Chanel Medium Classic Double Flap Black Caviar Gold Hardware\nCondition: Brand New / Microchip\nBudget: USD 9,800\nLocation: USA Wire Ready')" style="background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.4); padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">Copy Template</button>
+          </div>
+          <pre style="color: #e5e7eb; font-family: monospace; font-size: 12px; white-space: pre-wrap; margin: 0; background: #111827; padding: 12px; border-radius: 8px;">WTB Chanel Medium Classic Double Flap Black Caviar Gold Hardware
+Condition: Brand New / Microchip
+Budget: USD 9,800
+Location: USA Wire Ready</pre>
+        </div>
+
+        <!-- Template 3: Fine Jewelry -->
+        <div style="background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="color: #f59e0b; font-size: 12px; font-weight: 700;">FINE JEWELRY TEMPLATE (WTS)</span>
+            <button onclick="navigator.clipboard.writeText('WTS Van Cleef & Arpels Vintage Alhambra 5 Motifs Yellow Gold Mother of Pearl\nCondition: Full Set 2025 Certificate\nPrice: USD 4,800\nLocation: Dubai / Ready Wire')" style="background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.4); padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; font-weight: 600;">Copy Template</button>
+          </div>
+          <pre style="color: #e5e7eb; font-family: monospace; font-size: 12px; white-space: pre-wrap; margin: 0; background: #111827; padding: 12px; border-radius: 8px;">WTS Van Cleef & Arpels Vintage Alhambra 5 Motifs Yellow Gold Mother of Pearl
+Condition: Full Set 2025 Certificate
+Price: USD 4,800
+Location: Dubai / Ready Wire</pre>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="/" style="background: #f59e0b; color: #111827; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; display: inline-block;">
+            ⚡ Open Fast Posting & Watch Appraisal App
           </a>
         </div>
       </div>

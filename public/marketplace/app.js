@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initBrandFilter(catalogData);
     renderGrid(catalogData);
     setupEventListeners();
+    setupGuideModal();
   } catch (err) {
     console.error('Failed to load marketplace data:', err);
   }
@@ -134,6 +135,27 @@ function setupEventListeners() {
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.getElementById('modal-overlay').addEventListener('click', (e) => {
     if (e.target.id === 'modal-overlay') closeModal();
+  });
+}
+
+function setupGuideModal() {
+  const guideOverlay = document.getElementById('guide-modal-overlay');
+  const guideClose = document.getElementById('guide-modal-close');
+  
+  const openGuide = () => guideOverlay.classList.add('active');
+  const closeGuide = () => guideOverlay.classList.remove('active');
+
+  const btnTop = document.getElementById('btn-group-instructions-top');
+  const btnBanner = document.getElementById('btn-banner-guide');
+  const btnBottom = document.getElementById('btn-bottom-guide');
+
+  if (btnTop) btnTop.addEventListener('click', openGuide);
+  if (btnBanner) btnBanner.addEventListener('click', openGuide);
+  if (btnBottom) btnBottom.addEventListener('click', openGuide);
+  if (guideClose) guideClose.addEventListener('click', closeGuide);
+
+  guideOverlay.addEventListener('click', (e) => {
+    if (e.target.id === 'guide-modal-overlay') closeGuide();
   });
 }
 
