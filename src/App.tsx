@@ -748,6 +748,9 @@ export default function App() {
   const [lang, setLang] = useState('en');
   const [step, setStep] = useState(1);
   const [isPhotoGuideOpen, setIsPhotoGuideOpen] = useState(false);
+  const [isPostingGuideModalOpen, setIsPostingGuideModalOpen] = useState(false);
+  const [postingGuideTab, setPostingGuideTab] = useState<'watch' | 'non_watch' | 'rules' | 'ai_json'>('watch');
+  const [selectedJsonPreviewId, setSelectedJsonPreviewId] = useState<string>('rolex_wts');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [activeQuestionId, setActiveQuestionId] = useState<number | null>(null);
 
@@ -2082,15 +2085,12 @@ Price: USD 32,500`);
             
             {/* WHATSAPP / TELEGRAM CHAT POSTING GUIDE BUTTON */}
             <button
-              onClick={() => {
-                setLibraryTab('whatsapp_telegram');
-                setIsLibraryOpen(true);
-              }}
+              onClick={() => setIsPostingGuideModalOpen(true)}
               className="px-2.5 py-1.5 rounded-xl bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm group"
               title={lang === 'es' ? "Guía de Formato de Publicación para WhatsApp y Telegram" : "WhatsApp & Telegram External Posting Guide & Parser"}
             >
-              <Watch className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline">{lang === 'es' ? 'Guía Chat' : 'Chat Posting Guide'}</span>
+              <HelpCircle className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">{lang === 'es' ? 'Guía Chat' : 'Posting Guide'}</span>
             </button>
 
             {/* INVENTORY LIBRARY BUTTON */}
@@ -3432,6 +3432,13 @@ Price: USD 32,500`);
                     {t('photoGuide')}
                   </button>
                   <button 
+                    onClick={() => setIsPostingGuideModalOpen(true)}
+                    className="flex-1 py-4 bg-dark-surface border border-gold/40 rounded-xl text-sm font-medium hover:border-gold text-gold flex items-center justify-center gap-2 transition-colors shadow-sm"
+                  >
+                    <HelpCircle className="w-4 h-4 text-gold" />
+                    <span>{lang === 'es' ? 'Guía de Publicación' : 'Posting Guide'}</span>
+                  </button>
+                  <button 
                     onClick={handleNextStep}
                     className="flex-1 py-4 bg-gold text-dark rounded-xl text-sm font-bold hover:bg-gold-light transition-colors shadow-[0_4px_15px_rgba(201,169,98,0.2)]"
                   >
@@ -3447,6 +3454,15 @@ Price: USD 32,500`);
                   >
                     <ChevronLeft className="w-4 h-4" />
                     <span>{t('back')}</span>
+                  </button>
+
+                  <button 
+                    onClick={() => setIsPostingGuideModalOpen(true)}
+                    className="px-3.5 py-4 bg-dark-surface border border-gold/40 text-gold hover:bg-gold/10 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition-colors"
+                    title={lang === 'es' ? 'Guía de Publicación' : 'Posting Guide'}
+                  >
+                    <HelpCircle className="w-4 h-4 text-gold" />
+                    <span className="hidden sm:inline">{lang === 'es' ? 'Guía' : 'Posting Guide'}</span>
                   </button>
                   
                   <button 
@@ -3471,6 +3487,878 @@ Price: USD 32,500`);
         )}
 
       </div>
+
+      {/* INTERACTIVE GROUP CHAT POSTING GUIDE MODAL */}
+      <AnimatePresence>
+        {isPostingGuideModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] bg-dark/95 backdrop-blur-2xl flex flex-col items-center justify-center p-3 sm:p-6 overflow-y-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              className="w-full max-w-4xl bg-dark-surface border-2 border-gold/40 rounded-3xl p-4 sm:p-7 relative flex flex-col max-h-[92vh] shadow-2xl overflow-hidden"
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setIsPostingGuideModalOpen(false)}
+                className="absolute top-4 right-4 p-2 bg-dark border border-dark-border hover:border-gold/40 rounded-full text-text-muted hover:text-white transition-colors z-10"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Modal Header */}
+              <div className="flex items-center gap-3 mb-5 pr-10">
+                <div className="w-11 h-11 rounded-2xl bg-gold/20 border border-gold/50 flex items-center justify-center text-gold shadow-inner shrink-0">
+                  <HelpCircle className="w-6 h-6 text-gold animate-pulse" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-lg sm:text-xl font-serif font-bold text-white">
+                      {lang === 'es' ? 'Guía de Publicación en Chats de Grupo' : 'Group Chat Posting Guide'}
+                    </h2>
+                    <span className="px-2.5 py-0.5 rounded-full bg-gold/20 text-gold text-[10px] font-mono font-bold border border-gold/40">
+                      OFFICIAL STANDARD
+                    </span>
+                  </div>
+                  <p className="text-xs text-text-secondary font-mono mt-0.5">
+                    {lang === 'es' ? 'Formatos WTS & WTB para WhatsApp & Telegram • Parser IA Schema' : 'WTS & WTB Trade Templates for WhatsApp & Telegram • AI JSON Schema'}
+                  </p>
+                </div>
+              </div>
+
+              {/* Navigation Tabs Bar inside Modal */}
+              <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-dark rounded-2xl border border-dark-border mb-5 overflow-x-auto no-scrollbar shrink-0 text-xs font-mono">
+                <button
+                  onClick={() => setPostingGuideTab('watch')}
+                  className={`flex-1 min-w-[120px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
+                    postingGuideTab === 'watch'
+                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
+                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
+                  }`}
+                >
+                  <Watch className="w-4 h-4" />
+                  <span>{lang === 'es' ? '1. Relojes (WTS/WTB)' : '1. Watch Templates'}</span>
+                </button>
+
+                <button
+                  onClick={() => setPostingGuideTab('non_watch')}
+                  className={`flex-1 min-w-[140px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
+                    postingGuideTab === 'non_watch'
+                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
+                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
+                  }`}
+                >
+                  <Gem className="w-4 h-4" />
+                  <span>{lang === 'es' ? '2. Sin Reloj (Bolsos/Joyería)' : '2. Non-Watch Items'}</span>
+                </button>
+
+                <button
+                  onClick={() => setPostingGuideTab('rules')}
+                  className={`flex-1 min-w-[120px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
+                    postingGuideTab === 'rules'
+                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
+                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
+                  }`}
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>{lang === 'es' ? '3. Reglas Críticas' : '3. Critical Rules'}</span>
+                </button>
+
+                <button
+                  onClick={() => setPostingGuideTab('ai_json')}
+                  className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
+                    postingGuideTab === 'ai_json'
+                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
+                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
+                  }`}
+                >
+                  <FileCode className="w-4 h-4" />
+                  <span>{lang === 'es' ? '4. Preview JSON IA' : '4. AI JSON Schema'}</span>
+                </button>
+              </div>
+
+              {/* Modal Content Panels */}
+              <div className="flex-1 overflow-y-auto pr-1 space-y-6 min-h-[300px]">
+                
+                {/* TAB 1: WATCH POSTING TEMPLATES */}
+                {postingGuideTab === 'watch' && (
+                  <div className="space-y-6">
+                    <div className="p-4 bg-gradient-to-r from-gold/15 via-dark to-dark border border-gold/30 rounded-2xl space-y-1">
+                      <div className="flex items-center gap-2">
+                        <Crown className="w-4 h-4 text-gold" />
+                        <h3 className="text-xs font-bold text-white font-mono uppercase tracking-wider">
+                          {lang === 'es' ? 'Plantillas Estándar para Relojes de Lujo' : 'Standard Watch Posting Templates'}
+                        </h3>
+                      </div>
+                      <p className="text-xs text-text-secondary leading-relaxed">
+                        {lang === 'es'
+                          ? 'Copia estas plantillas probadas para publicar publicaciones WTS (Venta) o WTB (Compra) en grupos de WhatsApp o Telegram. Garantizan 100% de compatibilidad con el parser IA de CurateLux.'
+                          : 'Use these verified templates for WTS (Want To Sell) and WTB (Want To Buy) watch posts in WhatsApp or Telegram. Fully compatible with automated AI parsing & escrow registration.'}
+                      </p>
+                    </div>
+
+                    {/* ITEM 1: ROLEX DAYTONA */}
+                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
+                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
+                            RLX
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-white font-serif">Rolex Daytona 116500LN</h4>
+                            <p className="text-[10px] text-text-secondary font-mono">White Panda Dial • Ceramic Bezel • Stainless Steel</p>
+                          </div>
+                        </div>
+                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
+                          TOP TRADED PIECE
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Rolex Daytona WTS Card */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
+                              <Crown className="w-3.5 h-3.5 text-gold" />
+                              WTS (Want To Sell)
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTS Rolex Daytona\nRef: 116500LN\nYear: 2021\nDial: White Panda\nCondition: Mint / Unworn\nIncludes: Full Set (Box & Guarantee Card)\nPrice: USD 32,500`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTS Rolex Daytona copiada!" : "Rolex Daytona WTS Template copied to clipboard!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-gold" />
+                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTS Rolex Daytona
+Ref: 116500LN
+Year: 2021
+Dial: White Panda
+Condition: Mint / Unworn
+Includes: Full Set (Box & Guarantee Card)
+Price: USD 32,500`}
+                          </pre>
+                        </div>
+
+                        {/* Rolex Daytona WTB Card */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
+                              <Watch className="w-3.5 h-3.5 text-emerald-400" />
+                              WTB (Want To Buy)
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTB Rolex Daytona\nRef: 116500LN\nYear: 2020+\nDial: White Panda\nCondition: Mint\nIncludes: Full Set\nTarget Budget: USD 31,000`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTB Rolex Daytona copiada!" : "Rolex Daytona WTB Template copied to clipboard!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
+                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTB Rolex Daytona
+Ref: 116500LN
+Year: 2020+
+Dial: White Panda
+Condition: Mint
+Includes: Full Set
+Target Budget: USD 31,000`}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* ITEM 2: RICHARD MILLE RM35 */}
+                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
+                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
+                            RM
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-white font-serif">Richard Mille RM35-02 Automatic</h4>
+                            <p className="text-[10px] text-text-secondary font-mono">Rafael Nadal • NTPT Carbon Case • Skeleton Dial</p>
+                          </div>
+                        </div>
+                        <span className="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold rounded border border-emerald-500/30">
+                          HIGH COMPLICATION
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Richard Mille WTS Card */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
+                              <Crown className="w-3.5 h-3.5 text-gold" />
+                              WTS (Want To Sell)
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTS Richard Mille RM35\nRef: RM35-02\nYear: 2020\nDial: NTPT Black Carbon\nCondition: Unworn\nIncludes: Original Box & Certificate\nPrice: HKD 2,400,000`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTS Richard Mille copiada!" : "Richard Mille RM35 WTS Template copied to clipboard!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-gold" />
+                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTS Richard Mille RM35
+Ref: RM35-02
+Year: 2020
+Dial: NTPT Black Carbon
+Condition: Unworn
+Includes: Original Box & Certificate
+Price: HKD 2,400,000`}
+                          </pre>
+                        </div>
+
+                        {/* Richard Mille WTB Card */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
+                              <Watch className="w-3.5 h-3.5 text-emerald-400" />
+                              WTB (Want To Buy)
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTB Richard Mille RM35\nRef: RM35-02\nYear: 2020+\nDial: NTPT Black Carbon\nCondition: Mint / Unworn\nIncludes: Full Set\nTarget Budget: HKD 2,300,000`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTB Richard Mille copiada!" : "Richard Mille RM35 WTB Template copied to clipboard!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
+                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTB Richard Mille RM35
+Ref: RM35-02
+Year: 2020+
+Dial: NTPT Black Carbon
+Condition: Mint / Unworn
+Includes: Full Set
+Target Budget: HKD 2,300,000`}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB 2: NON-WATCH GROUP POSTING INSTRUCTIONS BANNER & TEMPLATES */}
+                {postingGuideTab === 'non_watch' && (
+                  <div className="space-y-6">
+                    
+                    {/* STYLISH BANNER CARD */}
+                    <div className="p-5 rounded-2xl bg-gradient-to-r from-gold/25 via-dark-surface to-dark-surface border-2 border-gold/50 shadow-2xl relative overflow-hidden space-y-3">
+                      <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
+                      
+                      <div className="flex items-center justify-between flex-wrap gap-2 relative z-10">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-2xl bg-gold/20 border border-gold flex items-center justify-center text-gold shadow-md shrink-0">
+                            <Gem className="w-5 h-5 text-gold animate-bounce" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm sm:text-base font-bold text-white font-serif tracking-tight">
+                              How to Post Non-Watch Luxury Items (Handbags, Jewelry, Accessories) in WhatsApp & Telegram Trade Groups
+                            </h3>
+                            <p className="text-xs text-gold font-mono">
+                              Official High-Luxury Dealer Template Protocol
+                            </p>
+                          </div>
+                        </div>
+
+                        <span className="px-3 py-1 rounded-full bg-gold text-dark font-mono text-xs font-extrabold shadow-md uppercase">
+                          NON-WATCH STANDARD
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-text-secondary leading-relaxed pt-1 relative z-10">
+                        {lang === 'es'
+                          ? 'Cuando publique bolsos de lujo (Hermès Birkin, Chanel) o joyería fina en chats de comercio de WhatsApp o Telegram, es obligatorio estructurar los campos clave: Intención (WTS/WTB), Marca, Cuero/Material, Año, Condición, Set Completo, Ubicación y Precio de Moneda.'
+                          : 'When posting high-luxury handbags (Hermès Birkin, Chanel) or fine jewelry in WhatsApp or Telegram trade networks, always format your post with explicit required fields: Intent (WTS/WTB), Brand, Leather/Material, Year, Condition, Full Set, Location, and Currency Price.'}
+                      </p>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-[11px] font-mono font-bold text-gold relative z-10">
+                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">1. Intent (WTS / WTB)</div>
+                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">2. Brand & Material</div>
+                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">3. Year & Condition</div>
+                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">4. Set, Location & Price</div>
+                      </div>
+                    </div>
+
+                    {/* TEMPLATE 1: HERMÈS BIRKIN 25 */}
+                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
+                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
+                            H
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-white font-serif">Hermès Birkin 25 Togo Leather</h4>
+                            <p className="text-[10px] text-text-secondary font-mono">Handbag • Gold Hardware (GHW) • Store Fresh</p>
+                          </div>
+                        </div>
+                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
+                          HOLY GRAIL HANDBAG
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* WTS Birkin 25 */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
+                              <Crown className="w-3.5 h-3.5 text-gold" />
+                              WTS Hermès Birkin 25
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTS Hermès Birkin 25\nBrand: Hermès\nLeather/Material: Togo Leather / Gold Hardware\nYear: 2023 (U Stamp)\nCondition: Store Fresh / Unused\nFull Set: Yes (Box, Dustbag, Lock, Keys, Raincover, Receipt)\nLocation: Geneva, Switzerland\nPrice: USD 24,500`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTS Birkin 25 copiada!" : "Hermès Birkin 25 WTS Template copied!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-gold" />
+                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTS Hermès Birkin 25
+Brand: Hermès
+Leather/Material: Togo Leather / Gold Hardware
+Year: 2023 (U Stamp)
+Condition: Store Fresh / Unused
+Full Set: Yes (Box, Dustbag, Lock, Keys, Raincover, Receipt)
+Location: Geneva, Switzerland
+Price: USD 24,500`}
+                          </pre>
+                        </div>
+
+                        {/* WTB Birkin 25 */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
+                              <Gem className="w-3.5 h-3.5 text-emerald-400" />
+                              WTB Hermès Birkin 25
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTB Hermès Birkin 25\nBrand: Hermès\nLeather/Material: Epsom or Togo / Gold or Palladium Hardware\nYear: 2022+\nCondition: Store Fresh or Mint\nFull Set: Yes (Complete Set Required)\nLocation: New York / Geneva\nPrice: USD 23,000`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTB Birkin 25 copiada!" : "Hermès Birkin 25 WTB Template copied!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
+                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTB Hermès Birkin 25
+Brand: Hermès
+Leather/Material: Epsom or Togo / Gold Hardware
+Year: 2022+
+Condition: Store Fresh or Mint
+Full Set: Yes (Complete Set Required)
+Location: New York / Geneva
+Price: USD 23,000`}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* TEMPLATE 2: CHANEL CLASSIC FLAP */}
+                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
+                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
+                            CC
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-white font-serif">Chanel Medium Classic Double Flap</h4>
+                            <p className="text-[10px] text-text-secondary font-mono">Handbag • Black Caviar Leather • Gold Hardware</p>
+                          </div>
+                        </div>
+                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
+                          CLASSIC LUXURY
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* WTS Chanel */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
+                              <Crown className="w-3.5 h-3.5 text-gold" />
+                              WTS Chanel Classic Flap
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTS Chanel Medium Classic Double Flap\nBrand: Chanel\nLeather/Material: Black Caviar Leather / Gold Hardware\nYear: 2022 (Microchip Series)\nCondition: Mint / Like New\nFull Set: Yes (Box, Dustbag, Microchip Card, Original Receipt)\nLocation: Paris, France\nPrice: EUR 9,800`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTS Chanel copiada!" : "Chanel Flap WTS Template copied!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-gold" />
+                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTS Chanel Medium Classic Double Flap
+Brand: Chanel
+Leather/Material: Black Caviar Leather / Gold Hardware
+Year: 2022 (Microchip Series)
+Condition: Mint / Like New
+Full Set: Yes (Box, Dustbag, Microchip Card, Receipt)
+Location: Paris, France
+Price: EUR 9,800`}
+                          </pre>
+                        </div>
+
+                        {/* WTB Chanel */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
+                              <Gem className="w-3.5 h-3.5 text-emerald-400" />
+                              WTB Chanel Classic Flap
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTB Chanel Medium Classic Double Flap\nBrand: Chanel\nLeather/Material: Black Caviar Leather / Gold or Silver Hardware\nYear: 2021+\nCondition: Excellent to Mint\nFull Set: Yes (Full Set with Chip/Card)\nLocation: London / Paris\nPrice: EUR 9,200`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTB Chanel copiada!" : "Chanel Flap WTB Template copied!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
+                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTB Chanel Medium Classic Double Flap
+Brand: Chanel
+Leather/Material: Black Caviar / Gold Hardware
+Year: 2021+
+Condition: Excellent to Mint
+Full Set: Yes (Full Set with Chip/Card)
+Location: London / Paris
+Price: EUR 9,200`}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* TEMPLATE 3: FINE JEWELRY */}
+                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
+                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
+                            💎
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-bold text-white font-serif">Fine Jewelry (Van Cleef / Cartier)</h4>
+                            <p className="text-[10px] text-text-secondary font-mono">Jewelry • 18k Gold • Precious Stones & Guilloché</p>
+                          </div>
+                        </div>
+                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
+                          FINE JEWELRY
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* WTS Jewelry */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
+                              <Crown className="w-3.5 h-3.5 text-gold" />
+                              WTS Van Cleef Alhambra
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTS Van Cleef & Arpels Vintage Alhambra Pendant\nBrand: Van Cleef & Arpels\nLeather/Material: 18k Yellow Gold & Guilloché\nYear: 2024\nCondition: Pristine / Unworn\nFull Set: Yes (Inner/Outer Box, Certificate of Authenticity, Invoice)\nLocation: Hong Kong\nPrice: HKD 38,000`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTS Joyería copiada!" : "Jewelry WTS Template copied!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-gold" />
+                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTS Van Cleef & Arpels Alhambra
+Brand: Van Cleef & Arpels
+Leather/Material: 18k Yellow Gold & Guilloché
+Year: 2024
+Condition: Pristine / Unworn
+Full Set: Yes (Box, Cert, Receipt)
+Location: Hong Kong
+Price: HKD 38,000`}
+                          </pre>
+                        </div>
+
+                        {/* WTB Jewelry */}
+                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
+                              <Gem className="w-3.5 h-3.5 text-emerald-400" />
+                              WTB Cartier Love Bracelet
+                            </span>
+                            <button
+                              onClick={() => {
+                                const t = `WTB Cartier Love Bracelet\nBrand: Cartier\nLeather/Material: 18k Yellow Gold (Size 18)\nYear: 2023+\nCondition: Mint / Excellent\nFull Set: Yes (Box, Screwdriver, Certificate of Authenticity)\nLocation: Singapore\nTarget Budget: USD 7,200`;
+                                navigator.clipboard?.writeText(t);
+                                setPremiumToast({
+                                  message: lang === 'es' ? "¡Plantilla WTB Joyería copiada!" : "Jewelry WTB Template copied!",
+                                  type: "gold"
+                                });
+                              }}
+                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
+                            >
+                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
+                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
+                            </button>
+                          </div>
+
+                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
+{`WTB Cartier Love Bracelet
+Brand: Cartier
+Leather/Material: 18k Yellow Gold (Size 18)
+Year: 2023+
+Condition: Mint / Excellent
+Full Set: Yes (Box, Screwdriver, Cert)
+Location: Singapore
+Price: USD 7,200`}
+                          </pre>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                )}
+
+                {/* TAB 3: CRITICAL RULES */}
+                {postingGuideTab === 'rules' && (
+                  <div className="space-y-5">
+                    <div className="p-4 bg-gold/10 border border-gold/30 rounded-2xl flex items-center gap-3">
+                      <ShieldCheck className="w-6 h-6 text-gold shrink-0 animate-pulse" />
+                      <p className="text-xs text-text-secondary leading-relaxed">
+                        {lang === 'es'
+                          ? 'Siga estas 4 Reglas Críticas para garantizar que sus publicaciones en chats de WhatsApp y Telegram sean leídas sin errores por los motores de inteligencia artificial y los agentes de bóveda.'
+                          : 'Follow these 4 Critical Rules to ensure every chat posting is correctly validated, indexed, and routed for escrow lock without processing errors.'}
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+                      
+                      {/* Rule 1 */}
+                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
+                        <div className="flex items-center justify-between">
+                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 1</span>
+                          <Crown className="w-4 h-4 text-gold" />
+                        </div>
+                        <h4 className="font-bold text-white text-sm font-serif">Intent First (WTS / WTB)</h4>
+                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
+                          Always start your message with <strong className="text-gold">WTS</strong> (Want To Sell) or <strong className="text-emerald-400">WTB</strong> (Want To Buy) as the very first word. This dictates automated pipeline routing.
+                        </p>
+                      </div>
+
+                      {/* Rule 2 */}
+                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
+                        <div className="flex items-center justify-between">
+                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 2</span>
+                          <Tag className="w-4 h-4 text-gold" />
+                        </div>
+                        <h4 className="font-bold text-white text-sm font-serif">Reference Numbers Required</h4>
+                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
+                          Include the exact manufacturer reference number (e.g. <strong className="text-gold">116500LN</strong>, <strong className="text-gold">RM35-02</strong>, <strong className="text-gold">Birkin 25 Togo</strong>). Never leave model names generic.
+                        </p>
+                      </div>
+
+                      {/* Rule 3 */}
+                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
+                        <div className="flex items-center justify-between">
+                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 3</span>
+                          <Coins className="w-4 h-4 text-gold" />
+                        </div>
+                        <h4 className="font-bold text-white text-sm font-serif">Currency Format Explicit</h4>
+                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
+                          State the 3-letter ISO currency code followed by price (<strong className="text-gold">USD 32,500</strong>, <strong className="text-gold">HKD 2,400,000</strong>, <strong className="text-gold">EUR 9,800</strong>). Unlabeled numbers are rejected by vault auditors.
+                        </p>
+                      </div>
+
+                      {/* Rule 4 */}
+                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
+                        <div className="flex items-center justify-between">
+                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 4</span>
+                          <Layers className="w-4 h-4 text-gold" />
+                        </div>
+                        <h4 className="font-bold text-white text-sm font-serif">One Watch / Item Per Post</h4>
+                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
+                          Never combine multiple luxury pieces into a single message. Publish separate posts for each asset so automated escrow and match tracking can execute cleanly.
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+                )}
+
+                {/* TAB 4: AI JSON SCHEMA PARSING PREVIEW */}
+                {postingGuideTab === 'ai_json' && (
+                  <div className="space-y-5">
+                    <div className="p-4 bg-dark border border-gold/30 rounded-2xl space-y-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <FileCode className="w-5 h-5 text-gold" />
+                          <h3 className="text-xs font-bold text-white font-mono uppercase tracking-wider">
+                            AI Neural Parser Schema Extraction Preview
+                          </h3>
+                        </div>
+                        <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold rounded border border-emerald-500/30">
+                          99.8% CONFIDENCE
+                        </span>
+                      </div>
+                      <p className="text-xs text-text-secondary leading-relaxed">
+                        Select any posting template below to test how CurateLux Neural NLP parses unstructured chat text into normalized JSON objects ready for escrow locking.
+                      </p>
+                    </div>
+
+                    {/* Template Selector Pills */}
+                    <div className="flex flex-wrap gap-2 text-xs font-mono">
+                      {[
+                        { id: 'rolex_wts', label: 'Rolex Daytona WTS' },
+                        { id: 'rm35_wts', label: 'Richard Mille RM35 WTS' },
+                        { id: 'birkin_wts', label: 'Hermès Birkin 25 WTS' },
+                        { id: 'chanel_wts', label: 'Chanel Classic Flap WTS' },
+                        { id: 'jewelry_wts', label: 'Van Cleef Alhambra WTS' }
+                      ].map(t => (
+                        <button
+                          key={t.id}
+                          onClick={() => setSelectedJsonPreviewId(t.id)}
+                          className={`px-3 py-1.5 rounded-xl border transition-all ${
+                            selectedJsonPreviewId === t.id
+                              ? 'bg-gold text-dark font-bold border-gold shadow-md'
+                              : 'bg-dark border-dark-border text-text-secondary hover:text-white'
+                          }`}
+                        >
+                          {t.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Code comparison split */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      
+                      {/* Left: Input Chat Text */}
+                      <div className="p-4 bg-dark rounded-2xl border border-dark-border space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono font-bold text-gold uppercase">Raw Input Chat Text</span>
+                          <span className="text-[9px] font-mono text-text-muted">WhatsApp / Telegram</span>
+                        </div>
+                        <pre className="p-3 bg-black/80 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border h-64 overflow-y-auto">
+{selectedJsonPreviewId === 'rolex_wts' ? `WTS Rolex Daytona
+Ref: 116500LN
+Year: 2021
+Dial: White Panda
+Condition: Mint / Unworn
+Includes: Full Set (Box & Guarantee Card)
+Price: USD 32,500` :
+selectedJsonPreviewId === 'rm35_wts' ? `WTS Richard Mille RM35
+Ref: RM35-02
+Year: 2020
+Dial: NTPT Black Carbon
+Condition: Unworn
+Includes: Original Box & Certificate
+Price: HKD 2,400,000` :
+selectedJsonPreviewId === 'birkin_wts' ? `WTS Hermès Birkin 25
+Brand: Hermès
+Leather/Material: Togo Leather / Gold Hardware
+Year: 2023 (U Stamp)
+Condition: Store Fresh / Unused
+Full Set: Yes (Box, Dustbag, Lock, Keys, Raincover, Receipt)
+Location: Geneva, Switzerland
+Price: USD 24,500` :
+selectedJsonPreviewId === 'chanel_wts' ? `WTS Chanel Medium Classic Double Flap
+Brand: Chanel
+Leather/Material: Black Caviar Leather / Gold Hardware
+Year: 2022 (Microchip Series)
+Condition: Mint / Like New
+Full Set: Yes (Box, Dustbag, Microchip Card, Receipt)
+Location: Paris, France
+Price: EUR 9,800` :
+`WTS Van Cleef & Arpels Alhambra
+Brand: Van Cleef & Arpels
+Leather/Material: 18k Yellow Gold & Guilloché
+Year: 2024
+Condition: Pristine / Unworn
+Full Set: Yes (Box, Cert, Receipt)
+Location: Hong Kong
+Price: HKD 38,000`}
+                        </pre>
+                      </div>
+
+                      {/* Right: Output Parsed JSON */}
+                      <div className="p-4 bg-dark rounded-2xl border border-gold/40 space-y-2 shadow-xl">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase flex items-center gap-1">
+                            <Check className="w-3.5 h-3.5 text-emerald-400" />
+                            Extracted JSON Schema Output
+                          </span>
+                          <span className="text-[9px] font-mono text-gold font-bold">AES-256 VAULT READY</span>
+                        </div>
+                        <pre className="p-3 bg-[#0d1117] rounded-xl text-xs font-mono text-emerald-400 leading-relaxed border border-emerald-500/30 h-64 overflow-y-auto">
+{selectedJsonPreviewId === 'rolex_wts' ? JSON.stringify({
+  "intent": "WTS",
+  "category": "Watch",
+  "brand": "Rolex",
+  "model": "Daytona",
+  "reference_number": "116500LN",
+  "year": 2021,
+  "dial_variant": "White Panda",
+  "condition": "Mint / Unworn",
+  "full_set": true,
+  "inclusions": ["Box", "Guarantee Card"],
+  "price": 32500,
+  "currency": "USD",
+  "location": "Geneva, Switzerland",
+  "ai_parser_confidence": 99.8,
+  "escrow_eligible": true
+}, null, 2) :
+selectedJsonPreviewId === 'rm35_wts' ? JSON.stringify({
+  "intent": "WTS",
+  "category": "Watch",
+  "brand": "Richard Mille",
+  "model": "RM35 Automatic",
+  "reference_number": "RM35-02",
+  "year": 2020,
+  "dial_variant": "NTPT Black Carbon",
+  "condition": "Unworn",
+  "full_set": true,
+  "inclusions": ["Original Box", "Certificate of Authenticity"],
+  "price": 2400000,
+  "currency": "HKD",
+  "location": "Hong Kong",
+  "ai_parser_confidence": 99.6,
+  "escrow_eligible": true
+}, null, 2) :
+selectedJsonPreviewId === 'birkin_wts' ? JSON.stringify({
+  "intent": "WTS",
+  "category": "Handbag",
+  "brand": "Hermès",
+  "model": "Birkin 25",
+  "material": "Togo Leather / Gold Hardware",
+  "year": "2023 (U Stamp)",
+  "condition": "Store Fresh / Unused",
+  "full_set": true,
+  "inclusions": ["Box", "Dustbag", "Lock", "Keys", "Raincover", "Receipt"],
+  "price": 24500,
+  "currency": "USD",
+  "location": "Geneva, Switzerland",
+  "ai_parser_confidence": 99.7,
+  "escrow_eligible": true
+}, null, 2) :
+selectedJsonPreviewId === 'chanel_wts' ? JSON.stringify({
+  "intent": "WTS",
+  "category": "Handbag",
+  "brand": "Chanel",
+  "model": "Medium Classic Double Flap",
+  "material": "Black Caviar Leather / Gold Hardware",
+  "year": "2022 (Microchip)",
+  "condition": "Mint / Like New",
+  "full_set": true,
+  "inclusions": ["Box", "Dustbag", "Microchip Card", "Receipt"],
+  "price": 9800,
+  "currency": "EUR",
+  "location": "Paris, France",
+  "ai_parser_confidence": 99.5,
+  "escrow_eligible": true
+}, null, 2) :
+JSON.stringify({
+  "intent": "WTS",
+  "category": "Jewelry",
+  "brand": "Van Cleef & Arpels",
+  "model": "Vintage Alhambra Pendant",
+  "material": "18k Yellow Gold & Guilloché",
+  "year": 2024,
+  "condition": "Pristine / Unworn",
+  "full_set": true,
+  "inclusions": ["Inner Box", "Outer Box", "Certificate", "Receipt"],
+  "price": 38000,
+  "currency": "HKD",
+  "location": "Hong Kong",
+  "ai_parser_confidence": 99.9,
+  "escrow_eligible": true
+}, null, 2)}
+                        </pre>
+                      </div>
+
+                    </div>
+                  </div>
+                )}
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* PREMIUM QR CODE SCANNER MODAL */}
       <AnimatePresence>
@@ -3806,6 +4694,48 @@ Price: USD 32,500`);
                           {f.label}
                         </button>
                       ))}
+                    </div>
+                  </div>
+
+                  {/* NON-WATCH GROUP POSTING INSTRUCTIONS BANNER */}
+                  <div className="p-5 rounded-2xl bg-gradient-to-r from-gold/25 via-dark-surface to-dark-surface border-2 border-gold/40 space-y-3 shadow-xl relative overflow-hidden">
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-2xl bg-gold/20 border border-gold/50 flex items-center justify-center text-gold shadow-md shrink-0">
+                          <Gem className="w-5 h-5 text-gold animate-bounce" />
+                        </div>
+                        <div>
+                          <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
+                            {lang === 'es' ? 'Cómo Publicar Artículos de Lujo Sin Reloj (Bolsos, Joyería, Accesorios) en Grupos de WhatsApp y Telegram' : 'How to Post Non-Watch Luxury Items (Handbags, Jewelry, Accessories) in WhatsApp & Telegram Trade Groups'}
+                          </h3>
+                          <p className="text-[10px] text-gold font-mono">
+                            {lang === 'es' ? 'Plantillas Estándar para Hermès Birkin 25, Chanel y Joyería Fina' : 'Standard Templates for Birkin 25, Chanel, & Fine Jewelry'}
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setPostingGuideTab('non_watch');
+                          setIsPostingGuideModalOpen(true);
+                        }}
+                        className="px-3 py-1.5 bg-gold text-dark font-mono text-xs font-bold rounded-xl hover:bg-gold-light transition-all flex items-center gap-1.5 shadow-md shrink-0"
+                      >
+                        <HelpCircle className="w-4 h-4 text-dark" />
+                        <span>{lang === 'es' ? 'Ver Guía Completa' : 'View Non-Watch Guide'}</span>
+                      </button>
+                    </div>
+
+                    <p className="text-xs text-text-secondary leading-relaxed pt-0.5">
+                      {lang === 'es'
+                        ? 'Formatee sus publicaciones de bolsos y joyería en grupos de comercio con los campos obligatorios: Intención (WTS/WTB), Marca, Cuero/Material, Año, Condición, Set Completo, Ubicación y Precio de Moneda.'
+                        : 'Format your non-watch luxury posts in WhatsApp & Telegram trade groups with required fields: Intent (WTS/WTB), Brand, Leather/Material, Year, Condition, Full Set, Location, and Currency Price.'}
+                    </p>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[10px] font-mono text-gold font-bold">
+                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">1. Intent (WTS / WTB)</div>
+                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">2. Brand & Material</div>
+                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">3. Year & Condition</div>
+                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">4. Full Set, Location & Price</div>
                     </div>
                   </div>
 
