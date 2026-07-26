@@ -21,10 +21,10 @@ function initMetrics(data) {
   const avgVal = totalItems > 0 ? totalVal / totalItems : 0;
   const uniqueSellers = new Set(data.map(item => item.from_number || item.from_name)).size;
   
-  document.getElementById('metric-total-value').innerText = '$' + Math.round(totalVal).toLocaleString();
-  document.getElementById('metric-items-count').innerText = totalItems.toLocaleString();
-  document.getElementById('metric-avg-price').innerText = '$' + Math.round(avgVal).toLocaleString();
-  document.getElementById('metric-sellers').innerText = uniqueSellers.toLocaleString();
+  document.getElementById('metric-total-value').innerText = '$' + Math.round(totalVal).toLocaleString() + ' USD';
+  document.getElementById('metric-items-count').innerText = totalItems + ' Report Items';
+  document.getElementById('metric-avg-price').innerText = '$' + Math.round(avgVal).toLocaleString() + ' USD';
+  document.getElementById('metric-sellers').innerText = uniqueSellers + ' Active Sellers';
 }
 
 function initBrandFilter(data) {
@@ -44,39 +44,36 @@ function renderGrid(items) {
   grid.innerHTML = '';
   
   if (items.length === 0) {
-    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted);">No luxury items found matching your filters.</div>';
+    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted); font-family: var(--font-serif-headline); font-style: italic;">No editorial listings found matching your search parameters.</div>';
     return;
   }
   
   items.forEach(item => {
-    const card = document.createElement('div');
-    card.className = 'item-card';
+    const card = document.createElement('article');
+    card.className = 'editorial-card';
     
     const intentClass = item.type === 'sale' ? 'badge-sale' : 'badge-search';
-    const intentLabel = item.type === 'sale' ? 'WTS / Selling' : 'WTB / Looking For';
-    const priceFormatted = parseFloat(item.price) > 0 ? '$' + parseFloat(item.price).toLocaleString() : 'Inquire / Best Offer';
+    const intentLabel = item.type === 'sale' ? 'WTS • FOR SALE' : 'WTB • SEEKING';
+    const priceFormatted = parseFloat(item.price) > 0 ? '$' + parseFloat(item.price).toLocaleString() : 'INQUIRE FOR QUOTE';
     
-    const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%23111827"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23f59e0b" font-family="sans-serif" font-size="16" font-weight="bold">WATCHFACTS LUXURY</text><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="%236b7280" font-family="sans-serif" font-size="12">Image Pending Verification</text></svg>`;
+    const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%230b0d11"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23d4af37" font-family="serif" font-size="14" font-weight="bold">THE LUXURY GAZETTE</text><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="%2364748b" font-family="sans-serif" font-size="11">IMAGE ARCHIVE VERIFICATION</text></svg>`;
     const imgSrc = item.full_image_url || fallbackSvg;
     
-    const colorTag = item.detected_color || 'Variant';
+    const colorTag = item.detected_color || 'Classic';
 
     card.innerHTML = `
-      <div class="card-image-wrapper">
-        <span class="badge-origin">${item.origin || 'Group Chat'}</span>
-        <span class="badge-intent ${intentClass}">${intentLabel}</span>
-        <img class="card-img" src="${imgSrc}" alt="${item.brand || 'Item'}" loading="lazy" onerror="this.src='${fallbackSvg}'; this.parentElement.parentElement.style.order=9999;">
+      <div class="card-media">
+        <span class="badge-editorial-intent ${intentClass}">${intentLabel}</span>
+        <span class="badge-color-tag">${colorTag}</span>
+        <img class="card-img-content" src="${imgSrc}" alt="${item.brand || 'Item'}" loading="lazy" onerror="this.src='${fallbackSvg}'; this.parentElement.parentElement.style.order=9999;">
       </div>
-      <div class="card-content">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <div class="card-category">${item.category_name || 'LUXURY ITEM'}</div>
-          <span style="font-size:10px; padding:2px 8px; border-radius:12px; background:rgba(245,158,11,0.15); color:var(--accent-gold); font-weight:700;">${colorTag}</span>
-        </div>
-        <div class="card-title">${item.brand || ''} ${item.model || ''}</div>
-        <div class="card-raw">${item.raw_message}</div>
-        <div class="card-footer">
-          <div class="card-price">${priceFormatted}</div>
-          <div class="card-seller-name">👤 ${item.from_name || 'Verified Member'}</div>
+      <div class="card-details">
+        <div class="card-category-strip">${item.category_name || 'LUXURY FINE GOODS'} • ${item.origin || 'GROUP POST'}</div>
+        <h3 class="card-item-title">${item.brand || 'Luxury Good'} ${item.model || ''}</h3>
+        <p class="card-excerpt">${item.raw_message}</p>
+        <div class="card-bottom-bar">
+          <div class="card-price-tag">${priceFormatted}</div>
+          <div class="card-seller-tag">👤 ${item.from_name || 'Verified Member'}</div>
         </div>
       </div>
     `;
@@ -145,12 +142,12 @@ function setupGuideModal() {
   const openGuide = () => guideOverlay.classList.add('active');
   const closeGuide = () => guideOverlay.classList.remove('active');
 
-  const btnTop = document.getElementById('btn-group-instructions-top');
-  const btnBanner = document.getElementById('btn-banner-guide');
+  const btnTop = document.getElementById('btn-top-guide');
+  const btnSidebar = document.getElementById('btn-sidebar-guide');
   const btnBottom = document.getElementById('btn-bottom-guide');
 
   if (btnTop) btnTop.addEventListener('click', openGuide);
-  if (btnBanner) btnBanner.addEventListener('click', openGuide);
+  if (btnSidebar) btnSidebar.addEventListener('click', openGuide);
   if (btnBottom) btnBottom.addEventListener('click', openGuide);
   if (guideClose) guideClose.addEventListener('click', closeGuide);
 
@@ -162,33 +159,30 @@ function setupGuideModal() {
 function openModal(item) {
   const overlay = document.getElementById('modal-overlay');
   
-  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%23111827"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23f59e0b" font-family="sans-serif" font-size="16" font-weight="bold">WATCHFACTS LUXURY</text><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="%236b7280" font-family="sans-serif" font-size="12">Image Pending Verification</text></svg>`;
+  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%230b0d11"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23d4af37" font-family="serif" font-size="14" font-weight="bold">THE LUXURY GAZETTE</text><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="%2364748b" font-family="sans-serif" font-size="11">IMAGE ARCHIVE VERIFICATION</text></svg>`;
   
   const imgElem = document.getElementById('modal-img');
   imgElem.src = item.full_image_url || fallbackSvg;
   imgElem.onerror = () => { imgElem.src = fallbackSvg; };
 
-  document.getElementById('modal-category').innerText = item.category_name || 'LUXURY GOODS';
-  document.getElementById('modal-title').innerText = `${item.brand || 'Luxury Listing'} ${item.model || ''}`;
+  document.getElementById('modal-category').innerText = (item.category_name || 'LUXURY FINE GOODS').toUpperCase();
+  document.getElementById('modal-title').innerText = `${item.brand || 'Luxury Good'} ${item.model || ''}`;
   
   const priceVal = parseFloat(item.price);
-  document.getElementById('modal-price').innerText = priceVal > 0 ? '$' + priceVal.toLocaleString() : 'Contact Seller for Quote';
+  document.getElementById('modal-price').innerText = priceVal > 0 ? '$' + priceVal.toLocaleString() + ' USD' : 'INQUIRE FOR QUOTE';
   
   document.getElementById('modal-raw-text').innerText = item.raw_message;
-  document.getElementById('modal-date').innerText = new Date(item.date_time).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-  document.getElementById('modal-tag').innerText = item.id_tag ? item.id_tag.substring(0, 16) + '...' : item.id.substring(0, 12);
   
   // Brand & Color Comparative Analytics
   const ba = item.brand_analytics || {};
   document.getElementById('modal-brand-listings').innerText = `${ba.total_listings_for_brand || 1} Items`;
-  document.getElementById('modal-brand-avg-price').innerText = ba.avg_brand_price ? '$' + Math.round(ba.avg_brand_price).toLocaleString() : 'N/A';
+  document.getElementById('modal-brand-avg-price').innerText = ba.avg_brand_price ? '$' + Math.round(ba.avg_brand_price).toLocaleString() + ' USD' : 'N/A';
   document.getElementById('modal-brand-range').innerText = (ba.min_brand_price && ba.max_brand_price) ? `$${Math.round(ba.min_brand_price).toLocaleString()} - $${Math.round(ba.max_brand_price).toLocaleString()}` : 'Market Price';
-  document.getElementById('modal-color-edition').innerText = item.detected_color ? `${item.detected_color} Variant` : 'Standard Edition';
+  document.getElementById('modal-color-edition').innerText = item.detected_color ? `${item.detected_color}` : 'Classic Edition';
 
-  // Seller Tracking
-  const sellerName = item.from_name || 'Private Collector';
+  // Seller Profile & Tracking
+  const sellerName = item.from_name || 'Verified Member';
   document.getElementById('modal-seller-name').innerText = sellerName;
-  document.getElementById('modal-seller-avatar').innerText = sellerName.charAt(0).toUpperCase();
   
   const cleanPhone = (item.from_number || '').replace(/[^0-9]/g, '');
   document.getElementById('modal-seller-phone').innerText = item.from_number ? `+${item.phone_code || ''} ${item.from_number}` : 'Verified Member';
@@ -196,7 +190,7 @@ function openModal(item) {
   const waBtn = document.getElementById('modal-wa-btn');
   if (cleanPhone) {
     waBtn.href = `https://wa.me/${cleanPhone}`;
-    waBtn.style.display = 'inline-flex';
+    waBtn.style.display = 'block';
   } else {
     waBtn.style.display = 'none';
   }
