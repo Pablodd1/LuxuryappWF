@@ -1,4 +1,6 @@
 let catalogData = [];
+let currentFiltered = [];
+let renderLimit = 50;
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
@@ -23,7 +25,6 @@ function initMetrics(data) {
   
   document.getElementById('metric-total-value').innerText = '$' + Math.round(totalVal).toLocaleString() + ' USD';
   document.getElementById('metric-items-count').innerText = totalItems + ' Report Items';
-  document.getElementById('metric-avg-price').innerText = '$' + Math.round(avgVal).toLocaleString() + ' USD';
   document.getElementById('metric-sellers').innerText = uniqueSellers + ' Active Sellers';
 }
 
@@ -39,33 +40,40 @@ function initBrandFilter(data) {
   });
 }
 
-function renderGrid(items) {
+function renderGrid(items, append = false) {
   const grid = document.getElementById('catalog-grid');
-  grid.innerHTML = '';
+  if (!append) {
+    grid.innerHTML = '';
+  }
   
   if (items.length === 0) {
     grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 60px; color: var(--text-muted); font-family: var(--font-serif-headline); font-style: italic;">No editorial listings found matching your search parameters.</div>';
     return;
   }
   
-  items.forEach(item => {
+  const toRender = items.slice(append ? renderLimit - 50 : 0, renderLimit);
+  
+  toRender.forEach(item => {
     const card = document.createElement('article');
     card.className = 'editorial-card';
     
     const intentClass = item.type === 'sale' ? 'badge-sale' : 'badge-search';
     const intentLabel = item.type === 'sale' ? 'WTS • FOR SALE' : 'WTB • SEEKING';
     const priceFormatted = parseFloat(item.price) > 0 ? '$' + parseFloat(item.price).toLocaleString() : 'INQUIRE FOR QUOTE';
-    
-    const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%230b0d11"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23d4af37" font-family="serif" font-size="14" font-weight="bold">THE LUXURY GAZETTE</text><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="%2364748b" font-family="sans-serif" font-size="11">IMAGE ARCHIVE VERIFICATION</text></svg>`;
-    const imgSrc = item.full_image_url || fallbackSvg;
-    
     const colorTag = item.detected_color || 'Classic';
 
+    let mediaHtml = '';
+    if (item.full_image_url) {
+      mediaHtml = `<img class="card-img-content" src="${item.full_image_url}" alt="${item.brand || 'Item'}" loading="lazy">`;
+    } else {
+      mediaHtml = `<div class="card-img-content" style="background:transparent;"></div>`;
+    }
+
     card.innerHTML = `
-      <div class="card-media">
+      <div class="card-media" style="${!item.full_image_url ? 'height:40px; border:none; background:transparent;' : ''}">
         <span class="badge-editorial-intent ${intentClass}">${intentLabel}</span>
         <span class="badge-color-tag">${colorTag}</span>
-        <img class="card-img-content" src="${imgSrc}" alt="${item.brand || 'Item'}" loading="lazy" onerror="this.src='${fallbackSvg}'; this.parentElement.parentElement.style.order=9999;">
+        ${mediaHtml}
       </div>
       <div class="card-details">
         <div class="card-category-strip">${item.category_name || 'LUXURY FINE GOODS'} • ${item.origin || 'GROUP POST'}</div>
@@ -81,6 +89,21 @@ function renderGrid(items) {
     card.addEventListener('click', () => openModal(item));
     grid.appendChild(card);
   });
+
+  const existingBtn = document.getElementById('load-more-btn');
+  if (existingBtn) existingBtn.remove();
+
+  if (items.length > renderLimit) {
+    const loadMoreBtn = document.createElement('button');
+    loadMoreBtn.id = 'load-more-btn';
+    loadMoreBtn.innerText = 'Load More (50)';
+    loadMoreBtn.style = 'grid-column: 1/-1; padding: 14px; background: #f1f5f9; border: 1px solid var(--border-subtle); cursor: pointer; font-family: var(--font-sans); font-weight: 700; color: var(--text-headline); margin-top: 20px;';
+    loadMoreBtn.onclick = () => {
+      renderLimit += 50;
+      renderGrid(currentFiltered, true);
+    };
+    grid.appendChild(loadMoreBtn);
+  }
 }
 
 function setupEventListeners() {
@@ -97,12 +120,11 @@ function setupEventListeners() {
     const sortVal = sortSelect.value;
     
     if (searchVal) {
-      filtered = filtered.filter(i => 
-        (i.raw_message && i.raw_message.toLowerCase().includes(searchVal)) ||
-        (i.from_name && i.from_name.toLowerCase().includes(searchVal)) ||
-        (i.brand && i.brand.toLowerCase().includes(searchVal)) ||
-        (i.detected_color && i.detected_color.toLowerCase().includes(searchVal))
-      );
+      const terms = searchVal.split(' ').filter(t => t);
+      filtered = filtered.filter(i => {
+        const text = [i.raw_message, i.from_name, i.brand, i.detected_color, i.model].filter(Boolean).join(' ').toLowerCase();
+        return terms.every(term => text.includes(term));
+      });
     }
     
     if (intentVal !== 'all') {
@@ -130,6 +152,8 @@ function setupEventListeners() {
       return 0;
     });
     
+    currentFiltered = filtered;
+    renderLimit = 50;
     renderGrid(filtered);
   };
   
@@ -168,7 +192,7 @@ function setupGuideModal() {
 function openModal(item) {
   const overlay = document.getElementById('modal-overlay');
   
-  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%230b0d11"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23d4af37" font-family="serif" font-size="14" font-weight="bold">THE LUXURY GAZETTE</text><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" fill="%2364748b" font-family="sans-serif" font-size="11">IMAGE ARCHIVE VERIFICATION</text></svg>`;
+  const fallbackSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240"><rect width="300" height="240" fill="%23f8f9fa"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="%23b45309" font-family="serif" font-size="14" font-weight="bold">NO IMAGE PROVIDED</text></svg>`;
   
   const imgElem = document.getElementById('modal-img');
   imgElem.src = item.full_image_url || fallbackSvg;
