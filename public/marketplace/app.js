@@ -53,9 +53,10 @@ function renderGrid(items, append = false) {
   
   const toRender = items.slice(append ? renderLimit - 50 : 0, renderLimit);
   
-  toRender.forEach(item => {
+  toRender.forEach((item, index) => {
     const card = document.createElement('article');
-    card.className = 'editorial-card';
+    const isSponsored = (index % 11 === 2); // 3rd, 14th, 25th items
+    card.className = isSponsored ? 'editorial-card sponsored-card' : 'editorial-card';
     
     const intentClass = item.type === 'sale' ? 'badge-sale' : 'badge-search';
     const intentLabel = item.type === 'sale' ? 'WTS • FOR SALE' : 'WTB • SEEKING';
@@ -68,9 +69,12 @@ function renderGrid(items, append = false) {
     } else {
       mediaHtml = `<div class="card-img-content" style="background:transparent;"></div>`;
     }
+    
+    const sponsoredTag = isSponsored ? '<span class="badge-sponsored">ADVERTISEMENT</span>' : '';
 
     card.innerHTML = `
       <div class="card-media" style="${!item.full_image_url ? 'height:40px; border:none; background:transparent;' : ''}">
+        ${sponsoredTag}
         <span class="badge-editorial-intent ${intentClass}">${intentLabel}</span>
         <span class="badge-color-tag">${colorTag}</span>
         ${mediaHtml}
