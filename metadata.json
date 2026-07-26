@@ -1,0 +1,6 @@
+{
+  "name": "CurateLux",
+  "description": "Premium luxury item valuation and authentication tool",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
