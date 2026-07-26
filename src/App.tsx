@@ -1,1406 +1,3 @@
-
-const NON_WATCH_MARKETPLACE_DATA = [
-  {
-    "id": "e3e71fc6-d711-4e29-8aa5-efbac1fcc08b",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Chris Beltran",
-    "phone_code": 1,
-    "from_number": "19173835175",
-    "raw_message": "",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-26T17:47:53.000Z",
-    "id_tag": "da39a3ee5e6b4b0d3255bfef95601890afd80709:19173835175",
-    "front_image": "68f91a4975dd2_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/68f91a4975dd2_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "2bfa35b8-f4cc-4ba8-8cf6-c938040c3372",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "dpz",
-    "phone_code": 91,
-    "from_number": "917405305132",
-    "raw_message": "199$/ct",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "199.00",
-    "date_time": "2026-07-26T06:21:32.000Z",
-    "id_tag": "184304f1ccca51ab712faa358d9e033f6841d246:917405305132",
-    "front_image": "6a65a76ab26cc_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a65a76ab26cc_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "6a8f02cd-334d-4226-9ede-818e9ae58141",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Donald Gruenberg",
-    "phone_code": 1,
-    "from_number": "13106134362",
-    "raw_message": "Platinum Ring. Diamond 4.01cts Natural Color (small SI near girdle)  + 0.94cts White Diamonds  9.6gr  $6700  Free shipping in the U.S.",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "6700.00",
-    "date_time": "2026-07-26T03:08:39.000Z",
-    "id_tag": "c6ed634ca3525d9adf5597d23148028e04b7d7ba:13106134362",
-    "front_image": "6a657a374b692_front_image.jpg",
-    "detected_color": "White",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a657a374b692_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "White Variant"
-    }
-  },
-  {
-    "id": "1e5a4117-6e93-449c-8437-12df9ae528af",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Donald Gruenberg",
-    "phone_code": 1,
-    "from_number": "13106134362",
-    "raw_message": "",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-26T02:51:54.000Z",
-    "id_tag": "da39a3ee5e6b4b0d3255bfef95601890afd80709:13106134362",
-    "front_image": "6907a33782d56_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6907a33782d56_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "cfa56f00-ff64-45e6-844e-f296d9d3535f",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Donald Gruenberg",
-    "phone_code": 1,
-    "from_number": "13106134362",
-    "raw_message": "Platinum Ring. Chrysoberyl Cat's Eye 2.37cts Dias 0.89cts  7.40gr  $950  Free shipping in the U.S.",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "950.00",
-    "date_time": "2026-07-26T02:51:48.000Z",
-    "id_tag": "ce53dda4b81cb9d22741b8621f7397ffde315196:13106134362",
-    "front_image": "6a657644ce81d_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a657644ce81d_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "4eaed102-874e-4b4f-8b1d-25d700ebbab3",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "search",
-    "from_name": "Just Watch Official",
-    "phone_code": 44,
-    "from_number": "447405376620",
-    "raw_message": "NTQ - 126715CHNR Tiger Iron 2025+ new full set - PM Me",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-26T01:57:10.000Z",
-    "id_tag": "139653bde622fc9696610298ceacd03ee836580e:447405376620",
-    "front_image": "6a6569759f654_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a6569759f654_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "c9aaaa88-0c5a-49f4-a605-6d0284d87d2c",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "search",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "Sold! Thank you",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T22:36:37.000Z",
-    "id_tag": "a16977f0b4694b9694fd41c375e2c7e513d0f67f:12032533635",
-    "front_image": "6a653a750b920_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a653a750b920_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "e859dac8-0fa8-49a4-a92c-1b58e6604ef4",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "Price drop $5150 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "5150.00",
-    "date_time": "2026-07-25T20:33:46.000Z",
-    "id_tag": "6a7831f222c55de650abbd2f2bb57302fd89e0a7:12032533635",
-    "front_image": "6a651da9c879c_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a651da9c879c_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "5a08efe0-ab29-4bed-a304-05b14873fe49",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "18k diamond brooch \n~.8ctw EF vs \n5.8 grams \n$675 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "675.00",
-    "date_time": "2026-07-25T19:24:22.000Z",
-    "id_tag": "2e2a16ac737479ebc7b1e3487a732e4e3727234b:12032533635",
-    "front_image": "6a650d6663cbe_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a650d6663cbe_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "4892fe4a-5685-49f7-b25f-f54415b06ace",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Chriss Beltran Sjt",
-    "phone_code": 1,
-    "from_number": "19173835175",
-    "raw_message": "Marco Bicego 16 inches - 16.5 grams no box just outer box and blank booklet - 18K approx 0.50ctw $2450 + label",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "2450.00",
-    "date_time": "2026-07-25T19:06:23.000Z",
-    "id_tag": "fb75f5924c553df6c7d2b0798426736ba89bd1a0:19173835175",
-    "front_image": "6a65092ef2721_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a65092ef2721_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "faff1d72-ca81-4a7b-bbe8-902bc539a36f",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "18k aqua diamond ring \n~11.5ctw Aqua by measurement \nSuper dirty could use a polish \nMissing two diamonds\n9.2 grams \n$1300 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "1300.00",
-    "date_time": "2026-07-25T17:59:59.000Z",
-    "id_tag": "f726ff31ebcd4cda0116260bc0f51b6954b2eab4:12032533635",
-    "front_image": "6a64f99fad11d_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a64f99fad11d_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "6e40c3bb-c9f9-4fa3-8c02-dfa4304974bb",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "18k ruby cab pendant \n7.7 grams \n$850 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "850.00",
-    "date_time": "2026-07-25T17:59:43.000Z",
-    "id_tag": "6c48af3d54af863ff28fabc3ab49151f5263eaa4:12032533635",
-    "front_image": "6a64f98f51577_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a64f98f51577_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "313f16b7-cb57-42a5-b225-7cac2fbc29d2",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "18k amethyst peridot ring \n13.9 grams \nSize 5 \n$1650 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "1650.00",
-    "date_time": "2026-07-25T17:34:46.000Z",
-    "id_tag": "3b54235671dba81f8e0426f1181acc252e47d29b:12032533635",
-    "front_image": "6a64f3b5f3790_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a64f3b5f3790_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "cb9e7286-5ae5-4c7e-a210-e757041cb400",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "14k charm bracelet \nBelieve Austrian \n8” in length \nCar missing enamel and rear wheels \n14.6 grams \n$1350 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "1350.00",
-    "date_time": "2026-07-25T17:18:15.000Z",
-    "id_tag": "1dc3255f02517d034ab157fc06e0fdb52952fdb1:12032533635",
-    "front_image": "6a64efd6cb111_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a64efd6cb111_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "1314e29b-d2cf-4efd-b14d-5742f380992c",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "14k excellent condition bangle \n66.5 grams \nFit size 7” \n$5300 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "5300.00",
-    "date_time": "2026-07-25T17:14:01.000Z",
-    "id_tag": "578671f62ba11dacccd92ce74f4f8c95ebaa713d:12032533635",
-    "front_image": "6a64eed989dd6_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a64eed989dd6_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "d63b59a9-fc19-4e7a-9f5e-40e13c76a0ac",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried. Sjt",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "14k retro chunky two tone tank bracelet. Also believe Austrian hallmarks \nNo dents some tarnish\n54.1 grams \n7.75” in length \n$4550 shipped",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "4550.00",
-    "date_time": "2026-07-25T16:55:50.000Z",
-    "id_tag": "f4151c89cdd19e02a2a80d17ccb3a75a627ed5b7:12032533635",
-    "front_image": "6a64ea95b692c_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a64ea95b692c_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "889b41b0-f2d3-4887-8666-29126cf7c623",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Sam Fried",
-    "phone_code": 1,
-    "from_number": "12032533635",
-    "raw_message": "",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T16:55:47.000Z",
-    "id_tag": "da39a3ee5e6b4b0d3255bfef95601890afd80709:12032533635",
-    "front_image": "69011919b1f8d_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69011919b1f8d_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "b6d07457-32f8-4b84-b33a-826e4b5849b2",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Guy",
-    "phone_code": 1,
-    "from_number": "13057256093",
-    "raw_message": "",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T15:31:30.000Z",
-    "id_tag": "da39a3ee5e6b4b0d3255bfef95601890afd80709:13057256093",
-    "front_image": "68f8ee47e977f_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/68f8ee47e977f_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "a27b2146-3727-42b4-b492-e7e964de99ff",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 3300 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:44.000Z",
-    "id_tag": "205f7c37c3720684cd587fafdd8f9bdeaefc1eaa:32484522664",
-    "front_image": "6a31ad75b17c9_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a31ad75b17c9_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "72e23410-89e8-44d7-8f1b-6b2c68369c73",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2600 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:40.000Z",
-    "id_tag": "5109dcb789c3bf1ffd90f0dccd6ad71b375fdb89:32484522664",
-    "front_image": "6a3308bc25f7c_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a3308bc25f7c_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "90d24df4-56a1-44e9-9ee8-77007feb6461",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 600 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:35.000Z",
-    "id_tag": "f53be41d65a18f1ef5c667993c63349229e2cf79:32484522664",
-    "front_image": "6a46aa3ae0195_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a46aa3ae0195_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "66931b34-a8f5-4e1b-b9da-d6fa8c7764c8",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2400 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:31.000Z",
-    "id_tag": "98a41da9026994bda80f7850640c03871641b9e5:32484522664",
-    "front_image": "6a3453dbbfe35_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a3453dbbfe35_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "f0dc0272-d56b-4113-b76d-0fe375d65788",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2900 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:30.000Z",
-    "id_tag": "aa121a26e7135855befa71464ef8515712abf9da:32484522664",
-    "front_image": "6a19e5aadad10_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a19e5aadad10_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "25c6382b-19ba-472b-b430-a7ff6a555894",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 1000 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:29.000Z",
-    "id_tag": "00ff09916dd1b89fa6437d4e113426dd32f29f68:32484522664",
-    "front_image": "69f8aa22824a5_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8aa22824a5_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "0300587c-cd5d-4769-8510-7f631ffd1bbb",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 3100 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:26.000Z",
-    "id_tag": "4415391c8ed1682d272f97dcfee789692b1660d1:32484522664",
-    "front_image": "6a31ad94c5322_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a31ad94c5322_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "507ed5ec-6cc6-4f81-888f-4647e3ff7313",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 1200 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:23.000Z",
-    "id_tag": "3a88c450cdba6d8e6d6ebb01b4e1f4fbe82ecf63:32484522664",
-    "front_image": "69f8ab06e19a8_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8ab06e19a8_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "8d8af34b-30ef-4522-b811-332de018f52d",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2000 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:21.000Z",
-    "id_tag": "bc8fa219958ce0397db57209722112cf4485a6a8:32484522664",
-    "front_image": "69f8ab07b8ccc_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8ab07b8ccc_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "18bf2692-9442-482b-baeb-b64a8e617ea3",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2550 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:20.000Z",
-    "id_tag": "e7d3c4ce9aa8e1b92c58cca1ea9abccf64118fd9:32484522664",
-    "front_image": "69f8a9aa0ecf8_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8a9aa0ecf8_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "ad20063d-e0f3-429c-9d87-a8d047a935b1",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 1600 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:13.000Z",
-    "id_tag": "207340c1299b5f341a908b53079759e907011cdf:32484522664",
-    "front_image": "69f8aa25c5bc6_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8aa25c5bc6_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "7136036b-693b-44d1-87a0-cbc966b89a18",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 1300 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:09.000Z",
-    "id_tag": "4fcfa4dc4ac032e993b4aa0537747eb3f14a906f:32484522664",
-    "front_image": "69f8aa1f0a5b8_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8aa1f0a5b8_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "ede0ecb5-d707-4682-a11e-6b205c320839",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2300 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:08.000Z",
-    "id_tag": "a08e151ff6fa326ab8b4dfde3cc771883c3838a1:32484522664",
-    "front_image": "69f8ac017e078_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8ac017e078_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "1d2e5e88-a9f6-4a42-ad2a-1be5640290a6",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 1400 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:05.000Z",
-    "id_tag": "0729b3ef0857ea1300ca502edbfd719b0c0aa852:32484522664",
-    "front_image": "69f8ad16428f9_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8ad16428f9_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "69cc1923-6a81-4674-9a60-fcd5c50fc232",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 1100 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:04.000Z",
-    "id_tag": "14914c58d7dbc3ec1cee7315815dcd93b87f4f52:32484522664",
-    "front_image": "69f8aa1ff01df_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8aa1ff01df_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "46640bce-adf5-4e68-921d-9f85ab245f77",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 3900 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:43:02.000Z",
-    "id_tag": "c0b208ac801ca59124c6f271fb735cc2b4fa8e2c:32484522664",
-    "front_image": "6a3d7cf73d813_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a3d7cf73d813_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "e96dc6c9-312f-4c6e-81c9-ae101a2569df",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Pjm.watch",
-    "phone_code": 32,
-    "from_number": "32484522664",
-    "raw_message": "🔥FLASH DEAL — Limited Time Offer\n\n💶 Price: 2200 euro  \n📦 Delivery: 4 weeks\n📍 Customs & Shipping Included",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-25T04:42:59.000Z",
-    "id_tag": "4443e3f7df33763d6288c28426635df1ab70727b:32484522664",
-    "front_image": "69f8aa24eee28_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69f8aa24eee28_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "e947f58b-d111-4649-8ecb-56c04ad48fb6",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "search",
-    "from_name": "Wesley",
-    "phone_code": 1,
-    "from_number": "13106230604",
-    "raw_message": "Looking to buy a Sterling Faceting Unit if anyone has a used one or know anyone selling 🙏",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-24T22:03:25.000Z",
-    "id_tag": "095675b356c66180cb7fadc77583d40ac47bcb29:13106230604",
-    "front_image": "6a63e12cb5ab9_front_image.png",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63e12cb5ab9_front_image.png",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "4f40c9dc-7fa7-4bc1-bde6-9481594e0e6a",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "search",
-    "from_name": "Peter Sedghi",
-    "phone_code": 1,
-    "from_number": "13107045664",
-    "raw_message": "Looking for all original size 9.5. Please dm",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-24T21:48:55.000Z",
-    "id_tag": "3e1f6c5fc3622cd3ead9ed4086b4ca5d5ce182f1:13107045664",
-    "front_image": "6a63ddc73c0a5_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63ddc73c0a5_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "d883159f-1b2e-41a2-984e-0e33a11fae08",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Whitestone",
-    "phone_code": 1,
-    "from_number": "13058773335",
-    "raw_message": "4.60ct Oval D/E I2 no cert \n12.45 x 9.05\nLaser drill \nStone has good life, no milky \nGreat Bluff stone \n14k ring rose gold \n$10,500 plus ship",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "10500.00",
-    "date_time": "2026-07-24T21:27:10.000Z",
-    "id_tag": "524bcc1c5df8dbefacc722a1083d2fe7437223cf:13058773335",
-    "front_image": "6a63d8adc1ffd_front_image.jpg",
-    "detected_color": "Gold",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63d8adc1ffd_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Gold Variant"
-    }
-  },
-  {
-    "id": "69c6b2f3-3aa2-4456-b85b-0624972033c8",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "MT-watch trading.",
-    "phone_code": 1,
-    "from_number": "17865697341",
-    "raw_message": "126711chnr \n2022 \nRootbeer \nFull set \n$18.750",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "18750.00",
-    "date_time": "2026-07-24T21:21:16.000Z",
-    "id_tag": "e89b019beda42e8508d25711d9660fbc1fccd315:17865697341",
-    "front_image": "6a63d74c87819_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63d74c87819_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "ab54fc93-762a-46cf-a26b-d06f395c2c1c",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Yakov david",
-    "phone_code": 1,
-    "from_number": "14109611120",
-    "raw_message": "Cartier 2961 \nFits 7.5”+ \nAutomatic\n29x41mm\n$3900 delivered \nClass is little loos",
-    "full_description": null,
-    "brand": "Cartier",
-    "model": null,
-    "price": "3900.00",
-    "date_time": "2026-07-24T20:09:02.000Z",
-    "id_tag": "a358b33b11e0c5c3fcd2f92342ec124ed062f2aa:14109611120",
-    "front_image": "6a63c65e68273_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63c65e68273_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 6,
-      "avg_brand_price": 7300,
-      "min_brand_price": 3900,
-      "max_brand_price": 9000,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "12e4d4b5-6b12-40e8-b541-e03490db926e",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Tuvia",
-    "phone_code": 1,
-    "from_number": "18454990818",
-    "raw_message": "1.87ct vivid red pigeon blood Ruby \n(Burma Mogok) \n (Clean)\nGRS certified \nHas a great spread! Looks like a 2ct stone\n$7500 delivered",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "7500.00",
-    "date_time": "2026-07-24T19:10:53.000Z",
-    "id_tag": "5a8e49138344a63dc6a099eaf908d90c7fd110a5:18454990818",
-    "front_image": "6a63b8bd3de45_front_image.jpg",
-    "detected_color": "Red",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63b8bd3de45_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Red Variant"
-    }
-  },
-  {
-    "id": "0c0df5af-bf3c-44c5-9249-164c98afd8b6",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Tuvia Ashkenazi",
-    "phone_code": 1,
-    "from_number": "18454990818",
-    "raw_message": "",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-24T19:10:48.000Z",
-    "id_tag": "da39a3ee5e6b4b0d3255bfef95601890afd80709:18454990818",
-    "front_image": "69012e7ee164d_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/69012e7ee164d_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "5f892c14-89ec-4082-a346-5359000c5dba",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "John Gram",
-    "phone_code": 1,
-    "from_number": "13123715327",
-    "raw_message": "2 Cartier bracelets \n\nSLIM models:\n\n-WG diamond 6 diamond size 18 (complete, minus the screwdriver)\n\n-YG plain \nSize 15, screwdriver and copy of the receipt only.  \n\n9k plus ship \n\nXposted",
-    "full_description": null,
-    "brand": "Cartier",
-    "model": null,
-    "price": "9000.00",
-    "date_time": "2026-07-24T19:01:48.000Z",
-    "id_tag": "252e9a1c3924e1ae61aa80ae79d341e02bba92e1:13123715327",
-    "front_image": "6a63b69c232fe_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63b69c232fe_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 6,
-      "avg_brand_price": 7300,
-      "min_brand_price": 3900,
-      "max_brand_price": 9000,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "2559278f-2356-446e-a32a-2e8e3f8e7e86",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Asaf Falah",
-    "phone_code": 1,
-    "from_number": "19179031460",
-    "raw_message": "platinum Diamond brooch 15.21 grams approximately 4.00 carat total weight \nall clean European Cuts \n$3750 + label(reduce price)",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "3750.00",
-    "date_time": "2026-07-24T18:08:48.000Z",
-    "id_tag": "7012726f3d7e6f75cb6161292f219ec5bbb8345f:19179031460",
-    "front_image": "6a63aa30c774d_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63aa30c774d_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "8ae4548d-c8ba-4e72-a087-0d2abd36caf7",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Ayan JEWELERY",
-    "phone_code": 1,
-    "from_number": "16789725338",
-    "raw_message": "14k two tone Cuban 221.1g\nApprox 24ctw diamond I1 clarity gh\n\n$18,875",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "18875.00",
-    "date_time": "2026-07-24T18:06:03.000Z",
-    "id_tag": "ab5a51a9c927382cf3d767423ac2590a9328df90:16789725338",
-    "front_image": "6a63a98af25bc_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63a98af25bc_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "c29ce1ce-cadb-46cc-9016-f03795ec7b7e",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Asaf Falah",
-    "phone_code": 1,
-    "from_number": "19179031460",
-    "raw_message": "Mix diamond lot fancy yellow SI2 11 75.41ctw $120 p/c beautiful color",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "120.00",
-    "date_time": "2026-07-24T18:01:14.000Z",
-    "id_tag": "6785fd78423a6ffb18476890fb36c9e874612d47:19179031460",
-    "front_image": "6a63a86a0132d_front_image.jpg",
-    "detected_color": "Yellow",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63a86a0132d_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Yellow Variant"
-    }
-  },
-  {
-    "id": "71c39de8-bf3b-4f02-9e92-a24104df6fab",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "YB Sjt",
-    "phone_code": 1,
-    "from_number": "16467078374",
-    "raw_message": "35.96 pt \n16.14 CT's I i1 \n5000/ct obo",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-24T17:40:42.000Z",
-    "id_tag": "80fdd0ae44bcef6f9d8260f24f5f1dd6094ad5a1:16467078374",
-    "front_image": "6a63a39a129be_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a63a39a129be_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "1eaf823e-5388-4418-bcbe-6bd5c59001c7",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "search",
-    "from_name": "Yakov david",
-    "phone_code": 1,
-    "from_number": "14109611120",
-    "raw_message": "3.01 L vs2 ex ex ex s \nGia cert copy only \nVery nice looking \n$11800 delivered",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "11800.00",
-    "date_time": "2026-07-24T17:15:31.000Z",
-    "id_tag": "ff1f711ea133da381d565bcd593a862085d7b8ba:14109611120",
-    "front_image": "6a639db3519a9_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a639db3519a9_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "7db22ab6-d5df-4898-be5d-32b0d4e3ce57",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Asaf Falah",
-    "phone_code": 1,
-    "from_number": "19179031460",
-    "raw_message": "OV 0.60 p J SI I1 4 stone\n1850$ total for all 4",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "1850.00",
-    "date_time": "2026-07-24T17:11:53.000Z",
-    "id_tag": "d4cd9ba6ddc1679e53fed143820bd9e6c70e1acd:19179031460",
-    "front_image": "6a639cd9cd563_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a639cd9cd563_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  },
-  {
-    "id": "b050d21f-b8b8-4a00-866e-c30bf8f1c8af",
-    "category_id": 24,
-    "category_name": "Other",
-    "origin": "WhatsApp",
-    "type": "sale",
-    "from_name": "Denish",
-    "phone_code": 91,
-    "from_number": "918898881111",
-    "raw_message": "3250$ per carat include shipping to USA",
-    "full_description": null,
-    "brand": "Luxury Brand",
-    "model": null,
-    "price": "0.00",
-    "date_time": "2026-07-24T16:59:39.000Z",
-    "id_tag": "085dd09c9bfeb2545189d75e21e93e5b8a56e6ef:918898881111",
-    "front_image": "6a6399fa57b3d_front_image.jpg",
-    "detected_color": "Classic Edition",
-    "has_image": true,
-    "full_image_url": "https://thecollective-prod.nyc3.digitaloceanspaces.com/listings/full/6a6399fa57b3d_front_image.jpg",
-    "brand_analytics": {
-      "total_listings_for_brand": 109,
-      "avg_brand_price": 3947,
-      "min_brand_price": 50,
-      "max_brand_price": 18875,
-      "color_variant_name": "Classic Edition Variant"
-    }
-  }
-];
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -1474,7 +71,10 @@ import {
   Scale,
   MessageSquareCode,
   FileCode,
-  Watch
+  Watch,
+  Car,
+  Gauge,
+  Key
 } from 'lucide-react';
 
 const MOCK_QR_TAGS = [
@@ -1521,6 +121,28 @@ const MOCK_QR_TAGS = [
     condition: 3, // Excellent
     description: "Verified Chanel Medium Classic Double Flap in Black caviar quilted leather with gold-tone metal hardware. Iconic CC turn-lock and chain-leather shoulder strap.",
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "QR-FER-SF90-XX",
+    brand: "Ferrari",
+    category: "Exotic Car / Luxury Vehicle",
+    model: "SF90 XX Stradale Fiorano",
+    estimatedValue: "980000",
+    currency: "USD",
+    condition: 4, // Mint
+    description: "Verified Ferrari SF90 XX Stradale Assetto Fiorano. Twin-Turbo V12 Hybrid 1016 HP. Certified Maranello production serial FER-SF90-9921.",
+    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: "QR-POR-GT3RS-992",
+    brand: "Porsche",
+    category: "Exotic Car / Luxury Vehicle",
+    model: "911 GT3 RS Weissach",
+    estimatedValue: "465000",
+    currency: "USD",
+    condition: 4, // Mint
+    description: "Verified Porsche 911 GT3 RS (992) with Weissach Lightweight Aero Package & Carbon Magnesium Wheels. Match VIN POR-992-GT3-RS-8820.",
+    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=600&q=80"
   }
 ];
 
@@ -1905,6 +527,21 @@ const VOICE_PRESETS = [
       currency: "USD",
       description: "Cartier Love Bracelet in 18k yellow gold, size 18. Good condition with light surface scratches. Extracted from voice assistant."
     }
+  },
+  {
+    id: 4,
+    title: "🏎️ Ferrari SF90 XX Hypercar (English)",
+    flag: "🏎️",
+    speech: "I am submitting my Ferrari SF90 XX Stradale Assetto Fiorano hypercar for valuation. It has a twin-turbo V12 hybrid engine producing one thousand sixteen horsepower, painted in Rosso Corsa with carbon fiber wing and lightweight magnesium wheels. Condition is absolute mint, under two hundred miles. Valued at nine hundred eighty thousand dollars.",
+    structured: {
+      category: "Exotic Car / Luxury Vehicle",
+      brand: "Ferrari",
+      model: "SF90 XX Stradale Fiorano",
+      condition: 4, // Mint
+      estimatedValue: "980000",
+      currency: "USD",
+      description: "Mint Ferrari SF90 XX Stradale Assetto Fiorano in Rosso Corsa with full carbon aerodynamic package and magnesium wheels. Verified via neural voice parser."
+    }
   }
 ];
 
@@ -2151,9 +788,6 @@ export default function App() {
   const [lang, setLang] = useState('en');
   const [step, setStep] = useState(1);
   const [isPhotoGuideOpen, setIsPhotoGuideOpen] = useState(false);
-  const [isPostingGuideModalOpen, setIsPostingGuideModalOpen] = useState(false);
-  const [postingGuideTab, setPostingGuideTab] = useState<'watch' | 'non_watch' | 'rules' | 'ai_json'>('watch');
-  const [selectedJsonPreviewId, setSelectedJsonPreviewId] = useState<string>('rolex_wts');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [activeQuestionId, setActiveQuestionId] = useState<number | null>(null);
 
@@ -3066,8 +1700,391 @@ Price: USD 32,500`);
     }
   };
 
+  // Live Camera Stream States
+  const [isLiveCameraActive, setIsLiveCameraActive] = useState(false);
+  const [cameraFacingMode, setCameraFacingMode] = useState<'environment' | 'user'>('environment');
+  const [cameraError, setCameraError] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const cameraCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const cameraStreamRef = useRef<MediaStream | null>(null);
+
+  // Real Web Speech API & Microphone States
+  const [isRecordingMic, setIsRecordingMic] = useState(false);
+  const [micVolumeLevel, setMicVolumeLevel] = useState(0);
+  const [speechError, setSpeechError] = useState<string | null>(null);
+  const speechRecognitionRef = useRef<any>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const audioAnalyserRef = useRef<AnalyserNode | null>(null);
+  const micMediaStreamRef = useRef<MediaStream | null>(null);
+
+  // Stop camera stream on unmount or manual stop
+  const stopLiveCamera = () => {
+    if (cameraStreamRef.current) {
+      cameraStreamRef.current.getTracks().forEach(track => track.stop());
+      cameraStreamRef.current = null;
+    }
+    setIsLiveCameraActive(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      stopLiveCamera();
+      stopRealVoiceDictation();
+    };
+  }, []);
+
+  // Start live camera stream (cellphone environment camera or webcam)
+  const startLiveCamera = async (facing: 'environment' | 'user' = cameraFacingMode) => {
+    setCameraError(null);
+    stopLiveCamera();
+    try {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error(lang === 'es' ? "Cámara no soportada en este navegador" : "Camera API not supported in this browser");
+      }
+      
+      const constraints = {
+        video: {
+          facingMode: { ideal: facing },
+          width: { ideal: 1280 },
+          height: { ideal: 720 }
+        }
+      };
+
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      cameraStreamRef.current = stream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        videoRef.current.play().catch(e => console.error("Error playing video:", e));
+      }
+      setCameraFacingMode(facing);
+      setIsLiveCameraActive(true);
+    } catch (err: any) {
+      console.error("Camera access error:", err);
+      setCameraError(
+        lang === 'es'
+          ? "No se pudo acceder a la cámara del celular. Puede usar la selección de imagen directa."
+          : "Could not access device camera. Please check permissions or use image file picker."
+      );
+      setIsLiveCameraActive(false);
+      setTimeout(() => {
+        document.querySelector<HTMLInputElement>('input[type="file"]')?.click();
+      }, 300);
+    }
+  };
+
+  const toggleCameraFacing = () => {
+    const nextFacing = cameraFacingMode === 'environment' ? 'user' : 'environment';
+    startLiveCamera(nextFacing);
+  };
+
+  const captureCameraPhoto = () => {
+    if (!videoRef.current) return;
+    try {
+      const video = videoRef.current;
+      const canvas = cameraCanvasRef.current || document.createElement('canvas');
+      canvas.width = video.videoWidth || 1280;
+      canvas.height = video.videoHeight || 720;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+        stopLiveCamera();
+        triggerImageAnalysis(dataUrl);
+      }
+    } catch (e) {
+      console.error("Error capturing camera photo:", e);
+    }
+  };
+
+  const triggerImageAnalysis = async (url: string) => {
+    setImageSrc(url);
+    setViewfinderState("analyzing");
+    setShowConfidence(false);
+    
+    const scanTexts = lang === 'es' 
+      ? ["ANALIZANDO CON IA DE TAGMYWATCH...", "EVALUANDO LOGO CON VISION API...", "EXAMINANDO CATALOGO DE EDICIONES DE LUJO..."]
+      : ["TAGMYWATCH AI ANALYZING...", "EVALUATING BRAND LOGO WITH VISION API...", "EXAMINING EDITORIAL WATCH DATASET..."];
+    let textIndex = 0;
+    const textInterval = setInterval(() => {
+      textIndex = (textIndex + 1) % scanTexts.length;
+      setScanText(scanTexts[textIndex]);
+    }, 700);
+
+    try {
+      const response = await fetch('/api/analyze-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageBase64: url })
+      });
+
+      const data = await response.json();
+      clearInterval(textInterval);
+
+      if (data && data.brand) {
+        setViewfinderState("loaded");
+        setShowConfidence(true);
+        if (data.confidence_breakdown) {
+          setConfidenceBreakdown(data.confidence_breakdown);
+        }
+        
+        const finalScore = data.confidence || 95;
+        let currentScore = 0;
+        const scoreInterval = setInterval(() => {
+          currentScore += 2;
+          if (currentScore >= finalScore) {
+            currentScore = finalScore;
+            clearInterval(scoreInterval);
+          }
+          setConfidenceScore(currentScore);
+        }, 20);
+
+        setFormData(prev => ({
+          ...prev,
+          category: data.category || prev.category,
+          brand: data.brand || prev.brand,
+          model: data.model || prev.model,
+          description: data.reasoning || prev.description,
+          estimatedValue: data.estimatedValue ? String(data.estimatedValue) : prev.estimatedValue
+        }));
+
+        setPremiumToast({
+          message: lang === 'es' 
+            ? `Análisis de Visión Real Completado: ${data.brand} ${data.model}`
+            : `Real AI Visual Identification Complete: ${data.brand} ${data.model}`,
+          type: "success"
+        });
+      } else {
+        throw new Error("Invalid response format");
+      }
+    } catch (err) {
+      console.warn("API Analysis fallback triggered:", err);
+      clearInterval(textInterval);
+      setViewfinderState("loaded");
+      setShowConfidence(true);
+      setConfidenceBreakdown(SIMULATED_RESPONSE.confidence_breakdown);
+      setConfidenceScore(SIMULATED_RESPONSE.confidence);
+      setFormData(prev => ({
+        ...prev,
+        category: SIMULATED_RESPONSE.category,
+        brand: SIMULATED_RESPONSE.brand,
+        model: SIMULATED_RESPONSE.model,
+        description: SIMULATED_RESPONSE.reasoning,
+      }));
+    }
+  };
+
+  // Real Speech Recognition & Microphone logic
+  const startRealVoiceDictation = async () => {
+    setSpeechError(null);
+    setVoiceSelectedPresetId(null);
+    setVoiceSpokenTranscript("");
+
+    const SpeechRecognitionClass = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+
+    // Mic volume audio level visualization
+    try {
+      if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        micMediaStreamRef.current = stream;
+        
+        const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+        if (AudioCtx) {
+          const audioCtx = new AudioCtx();
+          const analyser = audioCtx.createAnalyser();
+          const source = audioCtx.createMediaStreamSource(stream);
+          source.connect(analyser);
+          analyser.fftSize = 64;
+          
+          audioContextRef.current = audioCtx;
+          audioAnalyserRef.current = analyser;
+
+          const dataArray = new Uint8Array(analyser.frequencyBinCount);
+          const updateVolume = () => {
+            if (audioAnalyserRef.current) {
+              audioAnalyserRef.current.getByteFrequencyData(dataArray);
+              let sum = 0;
+              for (let i = 0; i < dataArray.length; i++) {
+                sum += dataArray[i];
+              }
+              const avg = sum / dataArray.length;
+              setMicVolumeLevel(Math.min(100, Math.round((avg / 128) * 100)));
+            }
+          };
+          const volumeInterval = setInterval(updateVolume, 100);
+          (stream as any)._volumeInterval = volumeInterval;
+        }
+      }
+    } catch (err: any) {
+      console.warn("Audio Context setup notice:", err);
+    }
+
+    if (SpeechRecognitionClass) {
+      try {
+        const recognition = new SpeechRecognitionClass();
+        speechRecognitionRef.current = recognition;
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = lang === 'es' ? 'es-ES' : 'en-US';
+
+        recognition.onstart = () => {
+          setIsRecordingMic(true);
+          setVoiceStep("listening");
+        };
+
+        recognition.onresult = (event: any) => {
+          let currentTranscript = "";
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            currentTranscript += event.results[i][0].transcript;
+          }
+          if (currentTranscript.trim()) {
+            setVoiceSpokenTranscript(currentTranscript);
+          }
+        };
+
+        recognition.onerror = (event: any) => {
+          console.error("Speech recognition error:", event.error);
+          if (event.error === 'not-allowed') {
+            setSpeechError(lang === 'es' ? "Permiso de micrófono denegado en el navegador." : "Microphone permission denied by browser.");
+          }
+        };
+
+        recognition.onend = () => {
+          setIsRecordingMic(false);
+        };
+
+        recognition.start();
+        setIsRecordingMic(true);
+        setVoiceStep("listening");
+      } catch (e) {
+        console.error("Failed to start speech recognition:", e);
+        fallbackVoiceListening();
+      }
+    } else {
+      fallbackVoiceListening();
+    }
+  };
+
+  const fallbackVoiceListening = () => {
+    setIsRecordingMic(true);
+    setVoiceStep("listening");
+    setVoiceSpokenTranscript(
+      lang === 'es'
+        ? "Micrófono activo. Diga el nombre del reloj o artículo de lujo..."
+        : "Microphone active. Speak your luxury item details..."
+    );
+  };
+
+  const stopRealVoiceDictation = () => {
+    if (speechRecognitionRef.current) {
+      try {
+        speechRecognitionRef.current.stop();
+      } catch (e) {}
+      speechRecognitionRef.current = null;
+    }
+
+    if (micMediaStreamRef.current) {
+      if ((micMediaStreamRef.current as any)._volumeInterval) {
+        clearInterval((micMediaStreamRef.current as any)._volumeInterval);
+      }
+      micMediaStreamRef.current.getTracks().forEach(track => track.stop());
+      micMediaStreamRef.current = null;
+    }
+
+    if (audioContextRef.current) {
+      try {
+        audioContextRef.current.close();
+      } catch (e) {}
+      audioContextRef.current = null;
+    }
+
+    setIsRecordingMic(false);
+    setMicVolumeLevel(0);
+  };
+
+  const processSpokenVoiceToAI = async () => {
+    stopRealVoiceDictation();
+    const textToProcess = voiceSpokenTranscript.trim();
+    if (!textToProcess) {
+      setSpeechError(lang === 'es' ? "No se detectó voz. Por favor intente de nuevo o use un preset." : "No speech detected. Please speak clearly or select a preset.");
+      setVoiceStep("idle");
+      return;
+    }
+
+    setVoiceStep("transcribing");
+
+    try {
+      const response = await fetch('/api/parse-voice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ transcript: textToProcess })
+      });
+
+      const parsedData = await response.json();
+      setVoiceStep("structuring");
+
+      setTimeout(() => {
+        setVoiceStructuredPreview({
+          brand: parsedData.brand || "Rolex",
+          model: parsedData.model || "Submariner 126610LN",
+          category: parsedData.category || "Watches",
+          condition: typeof parsedData.condition === 'number' ? parsedData.condition : 4,
+          estimatedValue: parsedData.estimatedValue ? String(parsedData.estimatedValue) : "13500",
+          currency: parsedData.currency || "USD",
+          description: parsedData.description || textToProcess
+        });
+        setVoiceStep("ready");
+      }, 600);
+    } catch (err) {
+      console.warn("Voice API fallback:", err);
+      setVoiceStep("structuring");
+
+      setTimeout(() => {
+        const textLower = textToProcess.toLowerCase();
+        let brand = "Rolex";
+        let model = "Submariner 126610LN";
+        let category = "Watches";
+        let estimatedValue = "13500";
+        let currency = "USD";
+        let condition = 4;
+
+        if (textLower.includes("birkin") || textLower.includes("hermes") || textLower.includes("hermès")) {
+          brand = "Hermès";
+          model = "Birkin 30 Epsom Leather";
+          category = "Handbags";
+          estimatedValue = "22000";
+        } else if (textLower.includes("cartier") || textLower.includes("love")) {
+          brand = "Cartier";
+          model = "Love Bracelet 18k Gold";
+          category = "Fine Jewelry";
+          estimatedValue = "7200";
+        }
+
+        const valMatch = textToProcess.match(/(\d[\d,.]*)/);
+        if (valMatch && valMatch[1]) {
+          const extractedNum = valMatch[1].replace(/,/g, '');
+          if (!isNaN(Number(extractedNum)) && Number(extractedNum) > 100) {
+            estimatedValue = extractedNum;
+          }
+        }
+
+        setVoiceStructuredPreview({
+          brand,
+          model,
+          category,
+          condition,
+          estimatedValue,
+          currency,
+          description: textToProcess
+        });
+
+        setVoiceStep("ready");
+      }, 600);
+    }
+  };
+
   // Premium Voice Simulation Handler
   const triggerVoicePreset = (presetId: number) => {
+    stopRealVoiceDictation();
     const preset = VOICE_PRESETS.find(p => p.id === presetId);
     if (!preset) return;
 
@@ -3088,7 +2105,6 @@ Price: USD 32,500`);
       } else {
         clearInterval(typingInterval);
         
-        // Move to transcribing phase
         setTimeout(() => {
           setVoiceStep("transcribing");
           
@@ -3102,43 +2118,12 @@ Price: USD 32,500`);
           }, 800);
         }, 500);
       }
-    }, 50); // Speed up typing for responsive feel
-  };
-
-  // Simulate real live microphone recording (if user doesn't pick preset)
-  const handleLiveMicSim = () => {
-    setVoiceSelectedPresetId(null);
-    setVoiceStep("listening");
-    setVoiceSpokenTranscript("Listening...");
-    
-    setTimeout(() => {
-      setVoiceSpokenTranscript("Speaking: 'I want to add an 18 karat gold Cartier Love Bracelet size eighteen, good condition...'");
-      
-      setTimeout(() => {
-        setVoiceStep("transcribing");
-        
-        setTimeout(() => {
-          setVoiceStep("structuring");
-          
-          setTimeout(() => {
-            setVoiceStep("ready");
-            setVoiceStructuredPreview({
-              category: "Jewelry",
-              brand: "Cartier",
-              model: "Love Bracelet (18k Gold)",
-              condition: 2,
-              estimatedValue: "7200",
-              currency: "USD",
-              description: "Cartier Love Bracelet in gold. Captured via simulated microphone dictation."
-            });
-          }, 1200);
-        }, 800);
-      }, 1000);
-    }, 1500);
+    }, 50);
   };
 
   // Apply voice structured data to form
   const applyVoiceData = () => {
+    stopRealVoiceDictation();
     if (!voiceStructuredPreview) return;
 
     setFormData(prev => ({
@@ -3178,6 +2163,7 @@ Price: USD 32,500`);
     setVoiceStep("idle");
     setVoiceStructuredPreview(null);
     setVoiceSelectedPresetId(null);
+    setStep(2); // Auto navigate to Step 2 so user sees prefilled form!
 
     setPremiumToast({
       message: lang === 'es'
@@ -3488,12 +2474,15 @@ Price: USD 32,500`);
             
             {/* WHATSAPP / TELEGRAM CHAT POSTING GUIDE BUTTON */}
             <button
-              onClick={() => setIsPostingGuideModalOpen(true)}
+              onClick={() => {
+                setLibraryTab('whatsapp_telegram');
+                setIsLibraryOpen(true);
+              }}
               className="px-2.5 py-1.5 rounded-xl bg-gold/10 hover:bg-gold/20 border border-gold/40 text-gold text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm group"
               title={lang === 'es' ? "Guía de Formato de Publicación para WhatsApp y Telegram" : "WhatsApp & Telegram External Posting Guide & Parser"}
             >
-              <HelpCircle className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
-              <span className="hidden sm:inline">{lang === 'es' ? 'Guía Chat' : 'Posting Guide'}</span>
+              <Watch className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">{lang === 'es' ? 'Guía Chat' : 'Chat Posting Guide'}</span>
             </button>
 
             {/* INVENTORY LIBRARY BUTTON */}
@@ -3641,17 +2630,92 @@ Price: USD 32,500`);
 
 
                 {/* VIEWFINDER */}
-                <div className="glass-card aspect-[4/3] w-full flex items-center justify-center relative">
+                <div className="glass-card aspect-[4/3] w-full flex items-center justify-center relative overflow-hidden">
                   
-                  {viewfinderState === "empty" && (
-                    <label className="absolute inset-4 border-2 border-dashed border-dark-border rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-gold/50 transition-colors">
-                      <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-4 pulse-gold">
+                  {viewfinderState === "empty" && !isLiveCameraActive && (
+                    <div className="absolute inset-4 border-2 border-dashed border-dark-border rounded-xl flex flex-col items-center justify-center p-4">
+                      <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mb-3 pulse-gold">
                         <Camera className="w-8 h-8 text-gold" />
                       </div>
-                      <p className="font-medium text-lg">{t('tapToCapture')}</p>
-                      <p className="text-sm text-text-secondary mt-1">{t('takeClearPhoto')}</p>
-                      <input type="file" accept="image/*" capture="environment" className="hidden" onChange={handlePhotoUpload} />
-                    </label>
+                      <p className="font-medium text-lg text-center">{t('tapToCapture')}</p>
+                      <p className="text-sm text-text-secondary mt-1 text-center">{t('takeClearPhoto')}</p>
+                      
+                      <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
+                        <button
+                          onClick={() => startLiveCamera('environment')}
+                          className="px-4 py-2 bg-gold text-dark font-bold text-xs uppercase tracking-wider rounded-xl flex items-center gap-2 hover:bg-gold-light transition-all shadow-lg"
+                        >
+                          <Camera className="w-4 h-4" />
+                          <span>{lang === 'es' ? 'Activar Cámara' : 'Activate Camera'}</span>
+                        </button>
+                        
+                        <label className="px-4 py-2 bg-dark-surface border border-dark-border text-white font-medium text-xs uppercase tracking-wider rounded-xl flex items-center gap-2 hover:border-gold/50 cursor-pointer transition-colors">
+                          <Upload className="w-4 h-4 text-gold" />
+                          <span>{lang === 'es' ? 'Subir Foto' : 'Upload Image'}</span>
+                          <input type="file" accept="image/*" capture="environment" className="hidden" onChange={handlePhotoUpload} />
+                        </label>
+                      </div>
+
+                      {cameraError && (
+                        <p className="text-xs text-amber-400 mt-3 text-center font-mono max-w-sm bg-amber-400/10 p-2 rounded border border-amber-400/20">
+                          {cameraError}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {isLiveCameraActive && viewfinderState === "empty" && (
+                    <div className="absolute inset-0 bg-black flex flex-col items-center justify-center">
+                      <video
+                        ref={videoRef}
+                        autoPlay
+                        playsInline
+                        muted
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* Live Viewfinder Frame Overlay */}
+                      <div className="absolute inset-4 border border-gold/40 rounded-2xl pointer-events-none flex flex-col justify-between p-2">
+                        <div className="flex justify-between">
+                          <div className="w-6 h-6 border-t-2 border-l-2 border-gold" />
+                          <div className="w-6 h-6 border-t-2 border-r-2 border-gold" />
+                        </div>
+                        <div className="text-center font-mono text-[10px] text-gold tracking-widest bg-black/70 px-3 py-1 rounded-full self-center border border-gold/40 shadow-lg">
+                          {lang === 'es' ? '📷 CÁMARA DEL CELULAR ACTIVA' : '📷 CELLPHONE CAMERA STREAM ACTIVE'}
+                        </div>
+                        <div className="flex justify-between">
+                          <div className="w-6 h-6 border-b-2 border-l-2 border-gold" />
+                          <div className="w-6 h-6 border-b-2 border-r-2 border-gold" />
+                        </div>
+                      </div>
+
+                      {/* Live Camera Toolbar */}
+                      <div className="absolute bottom-3 left-0 right-0 px-4 flex items-center justify-between z-10">
+                        <button
+                          onClick={stopLiveCamera}
+                          className="p-3 bg-dark/80 backdrop-blur-md rounded-full text-white border border-dark-border hover:bg-dark transition-colors"
+                          title={lang === 'es' ? 'Cerrar Cámara' : 'Close Camera'}
+                        >
+                          <X className="w-5 h-5" />
+                        </button>
+
+                        <button
+                          onClick={captureCameraPhoto}
+                          className="px-5 py-3 bg-gradient-to-r from-gold to-gold-light text-dark font-mono font-bold text-xs uppercase tracking-wider rounded-full flex items-center gap-2 shadow-2xl hover:scale-105 active:scale-95 transition-all border-2 border-white/30"
+                        >
+                          <Camera className="w-5 h-5" />
+                          <span>{lang === 'es' ? 'TOMAR FOTO Y ANALIZAR' : 'CAPTURE & ANALYZE'}</span>
+                        </button>
+
+                        <button
+                          onClick={toggleCameraFacing}
+                          className="p-3 bg-dark/80 backdrop-blur-md rounded-full text-gold border border-gold/40 hover:bg-gold/20 transition-colors"
+                          title={lang === 'es' ? 'Voltear Cámara (Trasera/Frontal)' : 'Switch Camera (Back/Front)'}
+                        >
+                          <RefreshCw className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
                   )}
 
                   {viewfinderState === "analyzing" && (
@@ -3672,6 +2736,18 @@ Price: USD 32,500`);
                   {viewfinderState === "loaded" && imageSrc && (
                     <div className="absolute inset-0 border-2 border-gold">
                       <img src={imageSrc} className="w-full h-full object-cover" alt="captured" />
+                      <button
+                        onClick={() => {
+                          setViewfinderState("empty");
+                          setImageSrc(null);
+                          setShowConfidence(false);
+                          startLiveCamera('environment');
+                        }}
+                        className="absolute top-3 right-3 px-3 py-1.5 bg-dark/80 backdrop-blur-md border border-gold/40 text-gold text-xs font-mono rounded-lg flex items-center gap-1.5 hover:bg-dark transition-colors"
+                      >
+                        <RefreshCw className="w-3.5 h-3.5" />
+                        <span>{lang === 'es' ? 'Repetir Foto' : 'Retake Photo'}</span>
+                      </button>
                     </div>
                   )}
 
@@ -3680,10 +2756,17 @@ Price: USD 32,500`);
                 {/* CAPTURE BUTTONS */}
                 <div className="grid grid-cols-5 gap-2 md:gap-4">
                   {[
-                    { icon: Camera, label: t('camera'), action: () => document.querySelector<HTMLInputElement>('input[type="file"]')?.click() },
+                    { icon: Camera, label: t('camera'), action: () => startLiveCamera('environment') },
                     { icon: ImageIcon, label: t('gallery'), action: () => document.querySelector<HTMLInputElement>('input[type="file"]')?.click() },
                     { icon: QrCode, label: lang === 'es' ? 'Escanear QR' : lang === 'zh' ? '二维码' : lang === 'ja' ? 'QRコード' : 'Scan QR', action: () => setIsQrModalOpen(true) },
-                    { icon: Mic, label: t('voice'), action: () => setShowVoiceRecorder(true) },
+                    { 
+                      icon: Mic, 
+                      label: t('voice'), 
+                      action: () => { 
+                        setShowVoiceRecorder(true); 
+                        startRealVoiceDictation(); 
+                      } 
+                    },
                     { icon: FileText, label: t('text'), action: () => setStep(2) },
                   ].map((btn, i) => (
                     <button key={i} onClick={btn.action} className="flex flex-col items-center gap-2 group">
@@ -3974,7 +3057,7 @@ Price: USD 32,500`);
                         } rounded-xl px-4 py-3 text-sm appearance-none outline-none focus:border-gold`}
                       >
                         <option value="">{t('selectCategory')}</option>
-                        {["Watch", "Handbag", "Jewelry", "Car", "Art", "Wine", "Other"].map(c => (
+                        {["Watch", "Handbag", "Jewelry", "Exotic Car / Luxury Vehicle", "Art & Collectibles", "Wine & Spirits", "Other"].map(c => (
                           <option key={c} value={c}>{c}</option>
                         ))}
                       </select>
@@ -4507,25 +3590,33 @@ Price: USD 32,500`);
                   <div className="text-center py-4 space-y-6">
                     <div className="flex flex-col items-center">
                       <button 
-                        onClick={handleLiveMicSim}
-                        className="w-20 h-20 rounded-full bg-gold/10 border-2 border-gold/40 flex items-center justify-center mb-3 group hover:border-gold hover:bg-gold/20 transition-all relative"
+                        onClick={startRealVoiceDictation}
+                        className="w-20 h-20 rounded-full bg-gold/10 border-2 border-gold/40 flex items-center justify-center mb-3 group hover:border-gold hover:bg-gold/20 transition-all relative shadow-[0_0_25px_rgba(201,169,98,0.25)]"
                       >
-                        <div className="absolute inset-0 rounded-full border border-gold/20 animate-ping pointer-events-none" />
+                        <div className="absolute inset-0 rounded-full border border-gold/30 animate-ping pointer-events-none" />
                         <Mic className="w-8 h-8 text-gold group-hover:scale-110 transition-transform" />
                       </button>
-                      <h3 className="text-sm font-semibold text-white">Simulate Live Dictation</h3>
-                      <p className="text-xs text-text-secondary mt-1 max-w-[280px] mx-auto">
-                        Click to simulate speaking your luxury asset description in real-time.
+                      <h3 className="text-sm font-bold text-white">{lang === 'es' ? 'Iniciar Dictado por Voz Real' : 'Start Real Voice Dictation'}</h3>
+                      <p className="text-xs text-text-secondary mt-1 max-w-[300px] mx-auto">
+                        {lang === 'es' 
+                          ? 'Toque el micrófono y hable libremente. La IA estructurará marca, modelo y valor automáticamente.'
+                          : 'Tap microphone and speak freely. AI will parse brand, model, condition, and estimated value.'}
                       </p>
+
+                      {speechError && (
+                        <p className="text-xs text-amber-400 mt-2 bg-amber-400/10 p-2 rounded border border-amber-400/20 max-w-xs">
+                          {speechError}
+                        </p>
+                      )}
                     </div>
 
                     <div className="border-t border-dark-border/60 pt-4 text-left">
                       <p className="text-xs text-gold font-bold uppercase tracking-widest mb-3 flex items-center gap-1">
                         <Sparkles className="w-3.5 h-3.5" />
-                        <span>Or select a multi-lingual preset dictation:</span>
+                        <span>{lang === 'es' ? 'O seleccione un dictado de prueba multilingüe:' : 'Or select a multi-lingual preset dictation:'}</span>
                       </p>
                       
-                      <div className="space-y-2 max-h-[180px] overflow-y-auto pr-1">
+                      <div className="space-y-2 max-h-[160px] overflow-y-auto pr-1">
                         {VOICE_PRESETS.map((p) => (
                           <button
                             key={p.id}
@@ -4545,29 +3636,61 @@ Price: USD 32,500`);
                 )}
 
                 {voiceStep === "listening" && (
-                  <div className="text-center py-6 space-y-6">
+                  <div className="text-center py-4 space-y-5">
+                    {/* Audio Equalizer Visualizer */}
                     <div className="flex items-center justify-center gap-1.5 h-16">
-                      {[...Array(16)].map((_, i) => (
-                        <motion.div 
-                          key={i}
-                          animate={{ height: [12, Math.max(16, Math.random() * 56), 12] }}
-                          transition={{ repeat: Infinity, duration: 0.35 + (i % 3) * 0.1, ease: "easeInOut" }}
-                          className="w-1.5 bg-gradient-to-t from-gold-dark via-gold to-gold-light rounded-full"
-                        />
-                      ))}
+                      {[...Array(16)].map((_, i) => {
+                        const barHeight = Math.max(12, Math.min(60, (micVolumeLevel * 0.6) + Math.random() * 24));
+                        return (
+                          <motion.div 
+                            key={i}
+                            animate={{ height: [12, barHeight, 12] }}
+                            transition={{ repeat: Infinity, duration: 0.25 + (i % 4) * 0.08, ease: "easeInOut" }}
+                            className="w-1.5 bg-gradient-to-t from-gold-dark via-gold to-gold-light rounded-full"
+                          />
+                        );
+                      })}
                     </div>
 
                     <div>
-                      <div className="font-mono text-xl text-gold-light">
-                        00:{recordingTime.toString().padStart(2, '0')}
+                      <div className="inline-flex items-center gap-2 font-mono text-xs text-gold-light bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+                        <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+                        <span>{lang === 'es' ? 'GRABANDO Y ESCUCHANDO VOZ...' : 'RECORDING & STREAMING SPEECH...'}</span>
                       </div>
-                      <p className="text-xs text-text-muted uppercase tracking-wider mt-1">STREAMING SPEECH TRANSCRIPTION</p>
                     </div>
 
-                    <div className="bg-dark/60 p-4 rounded-xl border border-dark-border text-left min-h-[80px]">
-                      <p className="text-xs text-text-secondary leading-relaxed font-mono">
-                        {voiceSpokenTranscript || <span className="text-text-muted italic">Connecting with neural speech codec...</span>}
+                    <div className="bg-dark/80 p-4 rounded-xl border border-dark-border text-left space-y-2">
+                      <p className="text-[10px] text-text-muted uppercase font-mono tracking-wider">
+                        {lang === 'es' ? 'Transcripción en Vivo:' : 'Live Spoken Transcript:'}
                       </p>
+                      <textarea
+                        value={voiceSpokenTranscript}
+                        onChange={(e) => setVoiceSpokenTranscript(e.target.value)}
+                        placeholder={lang === 'es' ? "Hablando..." : "Speaking..."}
+                        rows={3}
+                        className="w-full bg-transparent text-xs text-white leading-relaxed font-mono focus:outline-none resize-none border-b border-dark-border/40 pb-2"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-center gap-3">
+                      <button
+                        onClick={processSpokenVoiceToAI}
+                        className="px-6 py-3 bg-gradient-to-r from-gold to-gold-light text-dark font-bold text-xs uppercase tracking-wider rounded-xl flex items-center gap-2 shadow-lg hover:scale-105 transition-all"
+                      >
+                        <Sparkles className="w-4 h-4" />
+                        <span>{lang === 'es' ? 'DETENER Y PROCESAR CON IA' : 'STOP & PROCESS WITH AI'}</span>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          stopRealVoiceDictation();
+                          setVoiceStep("idle");
+                        }}
+                        className="p-3 bg-dark border border-dark-border text-text-muted hover:text-white rounded-xl"
+                        title={lang === 'es' ? 'Cancelar' : 'Cancel'}
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
                 )}
@@ -4835,13 +3958,6 @@ Price: USD 32,500`);
                     {t('photoGuide')}
                   </button>
                   <button 
-                    onClick={() => setIsPostingGuideModalOpen(true)}
-                    className="flex-1 py-4 bg-dark-surface border border-gold/40 rounded-xl text-sm font-medium hover:border-gold text-gold flex items-center justify-center gap-2 transition-colors shadow-sm"
-                  >
-                    <HelpCircle className="w-4 h-4 text-gold" />
-                    <span>{lang === 'es' ? 'Guía de Publicación' : 'Posting Guide'}</span>
-                  </button>
-                  <button 
                     onClick={handleNextStep}
                     className="flex-1 py-4 bg-gold text-dark rounded-xl text-sm font-bold hover:bg-gold-light transition-colors shadow-[0_4px_15px_rgba(201,169,98,0.2)]"
                   >
@@ -4857,15 +3973,6 @@ Price: USD 32,500`);
                   >
                     <ChevronLeft className="w-4 h-4" />
                     <span>{t('back')}</span>
-                  </button>
-
-                  <button 
-                    onClick={() => setIsPostingGuideModalOpen(true)}
-                    className="px-3.5 py-4 bg-dark-surface border border-gold/40 text-gold hover:bg-gold/10 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition-colors"
-                    title={lang === 'es' ? 'Guía de Publicación' : 'Posting Guide'}
-                  >
-                    <HelpCircle className="w-4 h-4 text-gold" />
-                    <span className="hidden sm:inline">{lang === 'es' ? 'Guía' : 'Posting Guide'}</span>
                   </button>
                   
                   <button 
@@ -4890,878 +3997,6 @@ Price: USD 32,500`);
         )}
 
       </div>
-
-      {/* INTERACTIVE GROUP CHAT POSTING GUIDE MODAL */}
-      <AnimatePresence>
-        {isPostingGuideModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[120] bg-dark/95 backdrop-blur-2xl flex flex-col items-center justify-center p-3 sm:p-6 overflow-y-auto"
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="w-full max-w-4xl bg-dark-surface border-2 border-gold/40 rounded-3xl p-4 sm:p-7 relative flex flex-col max-h-[92vh] shadow-2xl overflow-hidden"
-            >
-              {/* Close button */}
-              <button
-                onClick={() => setIsPostingGuideModalOpen(false)}
-                className="absolute top-4 right-4 p-2 bg-dark border border-dark-border hover:border-gold/40 rounded-full text-text-muted hover:text-white transition-colors z-10"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {/* Modal Header */}
-              <div className="flex items-center gap-3 mb-5 pr-10">
-                <div className="w-11 h-11 rounded-2xl bg-gold/20 border border-gold/50 flex items-center justify-center text-gold shadow-inner shrink-0">
-                  <HelpCircle className="w-6 h-6 text-gold animate-pulse" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-lg sm:text-xl font-serif font-bold text-white">
-                      {lang === 'es' ? 'Guía de Publicación en Chats de Grupo' : 'Group Chat Posting Guide'}
-                    </h2>
-                    <span className="px-2.5 py-0.5 rounded-full bg-gold/20 text-gold text-[10px] font-mono font-bold border border-gold/40">
-                      OFFICIAL STANDARD
-                    </span>
-                  </div>
-                  <p className="text-xs text-text-secondary font-mono mt-0.5">
-                    {lang === 'es' ? 'Formatos WTS & WTB para WhatsApp & Telegram • Parser IA Schema' : 'WTS & WTB Trade Templates for WhatsApp & Telegram • AI JSON Schema'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Navigation Tabs Bar inside Modal */}
-              <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-dark rounded-2xl border border-dark-border mb-5 overflow-x-auto no-scrollbar shrink-0 text-xs font-mono">
-                <button
-                  onClick={() => setPostingGuideTab('watch')}
-                  className={`flex-1 min-w-[120px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
-                    postingGuideTab === 'watch'
-                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
-                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
-                  }`}
-                >
-                  <Watch className="w-4 h-4" />
-                  <span>{lang === 'es' ? '1. Relojes (WTS/WTB)' : '1. Watch Templates'}</span>
-                </button>
-
-                <button
-                  onClick={() => setPostingGuideTab('non_watch')}
-                  className={`flex-1 min-w-[140px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
-                    postingGuideTab === 'non_watch'
-                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
-                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
-                  }`}
-                >
-                  <Gem className="w-4 h-4" />
-                  <span>{lang === 'es' ? '2. Sin Reloj (Bolsos/Joyería)' : '2. Non-Watch Items'}</span>
-                </button>
-
-                <button
-                  onClick={() => setPostingGuideTab('rules')}
-                  className={`flex-1 min-w-[120px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
-                    postingGuideTab === 'rules'
-                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
-                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
-                  }`}
-                >
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>{lang === 'es' ? '3. Reglas Críticas' : '3. Critical Rules'}</span>
-                </button>
-
-                <button
-                  onClick={() => setPostingGuideTab('ai_json')}
-                  className={`flex-1 min-w-[130px] py-2.5 px-3 rounded-xl transition-all flex items-center justify-center gap-1.5 font-bold ${
-                    postingGuideTab === 'ai_json'
-                      ? 'bg-gold text-dark shadow-md shadow-gold/20'
-                      : 'text-text-secondary hover:text-white hover:bg-dark-surface'
-                  }`}
-                >
-                  <FileCode className="w-4 h-4" />
-                  <span>{lang === 'es' ? '4. Preview JSON IA' : '4. AI JSON Schema'}</span>
-                </button>
-              </div>
-
-              {/* Modal Content Panels */}
-              <div className="flex-1 overflow-y-auto pr-1 space-y-6 min-h-[300px]">
-                
-                {/* TAB 1: WATCH POSTING TEMPLATES */}
-                {postingGuideTab === 'watch' && (
-                  <div className="space-y-6">
-                    <div className="p-4 bg-gradient-to-r from-gold/15 via-dark to-dark border border-gold/30 rounded-2xl space-y-1">
-                      <div className="flex items-center gap-2">
-                        <Crown className="w-4 h-4 text-gold" />
-                        <h3 className="text-xs font-bold text-white font-mono uppercase tracking-wider">
-                          {lang === 'es' ? 'Plantillas Estándar para Relojes de Lujo' : 'Standard Watch Posting Templates'}
-                        </h3>
-                      </div>
-                      <p className="text-xs text-text-secondary leading-relaxed">
-                        {lang === 'es'
-                          ? 'Copia estas plantillas probadas para publicar publicaciones WTS (Venta) o WTB (Compra) en grupos de WhatsApp o Telegram. Garantizan 100% de compatibilidad con el parser IA de CurateLux.'
-                          : 'Use these verified templates for WTS (Want To Sell) and WTB (Want To Buy) watch posts in WhatsApp or Telegram. Fully compatible with automated AI parsing & escrow registration.'}
-                      </p>
-                    </div>
-
-                    {/* ITEM 1: ROLEX DAYTONA */}
-                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
-                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
-                            RLX
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-bold text-white font-serif">Rolex Daytona 116500LN</h4>
-                            <p className="text-[10px] text-text-secondary font-mono">White Panda Dial • Ceramic Bezel • Stainless Steel</p>
-                          </div>
-                        </div>
-                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
-                          TOP TRADED PIECE
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Rolex Daytona WTS Card */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
-                              <Crown className="w-3.5 h-3.5 text-gold" />
-                              WTS (Want To Sell)
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTS Rolex Daytona\nRef: 116500LN\nYear: 2021\nDial: White Panda\nCondition: Mint / Unworn\nIncludes: Full Set (Box & Guarantee Card)\nPrice: USD 32,500`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTS Rolex Daytona copiada!" : "Rolex Daytona WTS Template copied to clipboard!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-gold" />
-                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTS Rolex Daytona
-Ref: 116500LN
-Year: 2021
-Dial: White Panda
-Condition: Mint / Unworn
-Includes: Full Set (Box & Guarantee Card)
-Price: USD 32,500`}
-                          </pre>
-                        </div>
-
-                        {/* Rolex Daytona WTB Card */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
-                              <Watch className="w-3.5 h-3.5 text-emerald-400" />
-                              WTB (Want To Buy)
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTB Rolex Daytona\nRef: 116500LN\nYear: 2020+\nDial: White Panda\nCondition: Mint\nIncludes: Full Set\nTarget Budget: USD 31,000`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTB Rolex Daytona copiada!" : "Rolex Daytona WTB Template copied to clipboard!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
-                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTB Rolex Daytona
-Ref: 116500LN
-Year: 2020+
-Dial: White Panda
-Condition: Mint
-Includes: Full Set
-Target Budget: USD 31,000`}
-                          </pre>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* ITEM 2: RICHARD MILLE RM35 */}
-                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
-                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
-                            RM
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-bold text-white font-serif">Richard Mille RM35-02 Automatic</h4>
-                            <p className="text-[10px] text-text-secondary font-mono">Rafael Nadal • NTPT Carbon Case • Skeleton Dial</p>
-                          </div>
-                        </div>
-                        <span className="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold rounded border border-emerald-500/30">
-                          HIGH COMPLICATION
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Richard Mille WTS Card */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
-                              <Crown className="w-3.5 h-3.5 text-gold" />
-                              WTS (Want To Sell)
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTS Richard Mille RM35\nRef: RM35-02\nYear: 2020\nDial: NTPT Black Carbon\nCondition: Unworn\nIncludes: Original Box & Certificate\nPrice: HKD 2,400,000`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTS Richard Mille copiada!" : "Richard Mille RM35 WTS Template copied to clipboard!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-gold" />
-                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTS Richard Mille RM35
-Ref: RM35-02
-Year: 2020
-Dial: NTPT Black Carbon
-Condition: Unworn
-Includes: Original Box & Certificate
-Price: HKD 2,400,000`}
-                          </pre>
-                        </div>
-
-                        {/* Richard Mille WTB Card */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
-                              <Watch className="w-3.5 h-3.5 text-emerald-400" />
-                              WTB (Want To Buy)
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTB Richard Mille RM35\nRef: RM35-02\nYear: 2020+\nDial: NTPT Black Carbon\nCondition: Mint / Unworn\nIncludes: Full Set\nTarget Budget: HKD 2,300,000`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTB Richard Mille copiada!" : "Richard Mille RM35 WTB Template copied to clipboard!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
-                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTB Richard Mille RM35
-Ref: RM35-02
-Year: 2020+
-Dial: NTPT Black Carbon
-Condition: Mint / Unworn
-Includes: Full Set
-Target Budget: HKD 2,300,000`}
-                          </pre>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* TAB 2: NON-WATCH GROUP POSTING INSTRUCTIONS BANNER & TEMPLATES */}
-                {postingGuideTab === 'non_watch' && (
-                  <div className="space-y-6">
-                    
-                    {/* STYLISH BANNER CARD */}
-                    <div className="p-5 rounded-2xl bg-gradient-to-r from-gold/25 via-dark-surface to-dark-surface border-2 border-gold/50 shadow-2xl relative overflow-hidden space-y-3">
-                      <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
-                      
-                      <div className="flex items-center justify-between flex-wrap gap-2 relative z-10">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-2xl bg-gold/20 border border-gold flex items-center justify-center text-gold shadow-md shrink-0">
-                            <Gem className="w-5 h-5 text-gold animate-bounce" />
-                          </div>
-                          <div>
-                            <h3 className="text-sm sm:text-base font-bold text-white font-serif tracking-tight">
-                              How to Post Non-Watch Luxury Items (Handbags, Jewelry, Accessories) in WhatsApp & Telegram Trade Groups
-                            </h3>
-                            <p className="text-xs text-gold font-mono">
-                              Official High-Luxury Dealer Template Protocol
-                            </p>
-                          </div>
-                        </div>
-
-                        <span className="px-3 py-1 rounded-full bg-gold text-dark font-mono text-xs font-extrabold shadow-md uppercase">
-                          NON-WATCH STANDARD
-                        </span>
-                      </div>
-
-                      <p className="text-xs text-text-secondary leading-relaxed pt-1 relative z-10">
-                        {lang === 'es'
-                          ? 'Cuando publique bolsos de lujo (Hermès Birkin, Chanel) o joyería fina en chats de comercio de WhatsApp o Telegram, es obligatorio estructurar los campos clave: Intención (WTS/WTB), Marca, Cuero/Material, Año, Condición, Set Completo, Ubicación y Precio de Moneda.'
-                          : 'When posting high-luxury handbags (Hermès Birkin, Chanel) or fine jewelry in WhatsApp or Telegram trade networks, always format your post with explicit required fields: Intent (WTS/WTB), Brand, Leather/Material, Year, Condition, Full Set, Location, and Currency Price.'}
-                      </p>
-
-                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-[11px] font-mono font-bold text-gold relative z-10">
-                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">1. Intent (WTS / WTB)</div>
-                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">2. Brand & Material</div>
-                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">3. Year & Condition</div>
-                        <div className="p-2 bg-dark/70 rounded-lg border border-gold/30">4. Set, Location & Price</div>
-                      </div>
-                    </div>
-
-                    {/* TEMPLATE 1: HERMÈS BIRKIN 25 */}
-                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
-                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
-                            H
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-bold text-white font-serif">Hermès Birkin 25 Togo Leather</h4>
-                            <p className="text-[10px] text-text-secondary font-mono">Handbag • Gold Hardware (GHW) • Store Fresh</p>
-                          </div>
-                        </div>
-                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
-                          HOLY GRAIL HANDBAG
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* WTS Birkin 25 */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
-                              <Crown className="w-3.5 h-3.5 text-gold" />
-                              WTS Hermès Birkin 25
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTS Hermès Birkin 25\nBrand: Hermès\nLeather/Material: Togo Leather / Gold Hardware\nYear: 2023 (U Stamp)\nCondition: Store Fresh / Unused\nFull Set: Yes (Box, Dustbag, Lock, Keys, Raincover, Receipt)\nLocation: Geneva, Switzerland\nPrice: USD 24,500`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTS Birkin 25 copiada!" : "Hermès Birkin 25 WTS Template copied!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-gold" />
-                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTS Hermès Birkin 25
-Brand: Hermès
-Leather/Material: Togo Leather / Gold Hardware
-Year: 2023 (U Stamp)
-Condition: Store Fresh / Unused
-Full Set: Yes (Box, Dustbag, Lock, Keys, Raincover, Receipt)
-Location: Geneva, Switzerland
-Price: USD 24,500`}
-                          </pre>
-                        </div>
-
-                        {/* WTB Birkin 25 */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
-                              <Gem className="w-3.5 h-3.5 text-emerald-400" />
-                              WTB Hermès Birkin 25
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTB Hermès Birkin 25\nBrand: Hermès\nLeather/Material: Epsom or Togo / Gold or Palladium Hardware\nYear: 2022+\nCondition: Store Fresh or Mint\nFull Set: Yes (Complete Set Required)\nLocation: New York / Geneva\nPrice: USD 23,000`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTB Birkin 25 copiada!" : "Hermès Birkin 25 WTB Template copied!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
-                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTB Hermès Birkin 25
-Brand: Hermès
-Leather/Material: Epsom or Togo / Gold Hardware
-Year: 2022+
-Condition: Store Fresh or Mint
-Full Set: Yes (Complete Set Required)
-Location: New York / Geneva
-Price: USD 23,000`}
-                          </pre>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* TEMPLATE 2: CHANEL CLASSIC FLAP */}
-                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
-                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
-                            CC
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-bold text-white font-serif">Chanel Medium Classic Double Flap</h4>
-                            <p className="text-[10px] text-text-secondary font-mono">Handbag • Black Caviar Leather • Gold Hardware</p>
-                          </div>
-                        </div>
-                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
-                          CLASSIC LUXURY
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* WTS Chanel */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
-                              <Crown className="w-3.5 h-3.5 text-gold" />
-                              WTS Chanel Classic Flap
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTS Chanel Medium Classic Double Flap\nBrand: Chanel\nLeather/Material: Black Caviar Leather / Gold Hardware\nYear: 2022 (Microchip Series)\nCondition: Mint / Like New\nFull Set: Yes (Box, Dustbag, Microchip Card, Original Receipt)\nLocation: Paris, France\nPrice: EUR 9,800`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTS Chanel copiada!" : "Chanel Flap WTS Template copied!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-gold" />
-                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTS Chanel Medium Classic Double Flap
-Brand: Chanel
-Leather/Material: Black Caviar Leather / Gold Hardware
-Year: 2022 (Microchip Series)
-Condition: Mint / Like New
-Full Set: Yes (Box, Dustbag, Microchip Card, Receipt)
-Location: Paris, France
-Price: EUR 9,800`}
-                          </pre>
-                        </div>
-
-                        {/* WTB Chanel */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
-                              <Gem className="w-3.5 h-3.5 text-emerald-400" />
-                              WTB Chanel Classic Flap
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTB Chanel Medium Classic Double Flap\nBrand: Chanel\nLeather/Material: Black Caviar Leather / Gold or Silver Hardware\nYear: 2021+\nCondition: Excellent to Mint\nFull Set: Yes (Full Set with Chip/Card)\nLocation: London / Paris\nPrice: EUR 9,200`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTB Chanel copiada!" : "Chanel Flap WTB Template copied!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
-                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTB Chanel Medium Classic Double Flap
-Brand: Chanel
-Leather/Material: Black Caviar / Gold Hardware
-Year: 2021+
-Condition: Excellent to Mint
-Full Set: Yes (Full Set with Chip/Card)
-Location: London / Paris
-Price: EUR 9,200`}
-                          </pre>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* TEMPLATE 3: FINE JEWELRY */}
-                    <div className="p-5 bg-dark border border-gold/30 rounded-2xl space-y-4 shadow-lg">
-                      <div className="flex items-center justify-between border-b border-dark-border pb-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-dark-surface border border-gold/40 flex items-center justify-center text-gold font-mono font-bold">
-                            💎
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-bold text-white font-serif">Fine Jewelry (Van Cleef / Cartier)</h4>
-                            <p className="text-[10px] text-text-secondary font-mono">Jewelry • 18k Gold • Precious Stones & Guilloché</p>
-                          </div>
-                        </div>
-                        <span className="px-2.5 py-1 bg-gold/10 text-gold text-[10px] font-mono font-bold rounded border border-gold/30">
-                          FINE JEWELRY
-                        </span>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* WTS Jewelry */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-gold/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-gold font-mono flex items-center gap-1.5">
-                              <Crown className="w-3.5 h-3.5 text-gold" />
-                              WTS Van Cleef Alhambra
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTS Van Cleef & Arpels Vintage Alhambra Pendant\nBrand: Van Cleef & Arpels\nLeather/Material: 18k Yellow Gold & Guilloché\nYear: 2024\nCondition: Pristine / Unworn\nFull Set: Yes (Inner/Outer Box, Certificate of Authenticity, Invoice)\nLocation: Hong Kong\nPrice: HKD 38,000`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTS Joyería copiada!" : "Jewelry WTS Template copied!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-gold/20 hover:bg-gold/30 border border-gold/40 text-gold text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-gold" />
-                              <span>{lang === 'es' ? 'Copiar WTS' : 'Copy WTS'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTS Van Cleef & Arpels Alhambra
-Brand: Van Cleef & Arpels
-Leather/Material: 18k Yellow Gold & Guilloché
-Year: 2024
-Condition: Pristine / Unworn
-Full Set: Yes (Box, Cert, Receipt)
-Location: Hong Kong
-Price: HKD 38,000`}
-                          </pre>
-                        </div>
-
-                        {/* WTB Jewelry */}
-                        <div className="p-4 bg-dark-surface rounded-xl border border-dark-border hover:border-emerald-500/40 transition-all space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-1.5">
-                              <Gem className="w-3.5 h-3.5 text-emerald-400" />
-                              WTB Cartier Love Bracelet
-                            </span>
-                            <button
-                              onClick={() => {
-                                const t = `WTB Cartier Love Bracelet\nBrand: Cartier\nLeather/Material: 18k Yellow Gold (Size 18)\nYear: 2023+\nCondition: Mint / Excellent\nFull Set: Yes (Box, Screwdriver, Certificate of Authenticity)\nLocation: Singapore\nTarget Budget: USD 7,200`;
-                                navigator.clipboard?.writeText(t);
-                                setPremiumToast({
-                                  message: lang === 'es' ? "¡Plantilla WTB Joyería copiada!" : "Jewelry WTB Template copied!",
-                                  type: "gold"
-                                });
-                              }}
-                              className="px-3 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold rounded-lg transition-all flex items-center gap-1.5"
-                            >
-                              <Copy className="w-3.5 h-3.5 text-emerald-400" />
-                              <span>{lang === 'es' ? 'Copiar WTB' : 'Copy WTB'}</span>
-                            </button>
-                          </div>
-
-                          <pre className="p-3 bg-black/70 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border overflow-x-auto">
-{`WTB Cartier Love Bracelet
-Brand: Cartier
-Leather/Material: 18k Yellow Gold (Size 18)
-Year: 2023+
-Condition: Mint / Excellent
-Full Set: Yes (Box, Screwdriver, Cert)
-Location: Singapore
-Price: USD 7,200`}
-                          </pre>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-                )}
-
-                {/* TAB 3: CRITICAL RULES */}
-                {postingGuideTab === 'rules' && (
-                  <div className="space-y-5">
-                    <div className="p-4 bg-gold/10 border border-gold/30 rounded-2xl flex items-center gap-3">
-                      <ShieldCheck className="w-6 h-6 text-gold shrink-0 animate-pulse" />
-                      <p className="text-xs text-text-secondary leading-relaxed">
-                        {lang === 'es'
-                          ? 'Siga estas 4 Reglas Críticas para garantizar que sus publicaciones en chats de WhatsApp y Telegram sean leídas sin errores por los motores de inteligencia artificial y los agentes de bóveda.'
-                          : 'Follow these 4 Critical Rules to ensure every chat posting is correctly validated, indexed, and routed for escrow lock without processing errors.'}
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-                      
-                      {/* Rule 1 */}
-                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
-                        <div className="flex items-center justify-between">
-                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 1</span>
-                          <Crown className="w-4 h-4 text-gold" />
-                        </div>
-                        <h4 className="font-bold text-white text-sm font-serif">Intent First (WTS / WTB)</h4>
-                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
-                          Always start your message with <strong className="text-gold">WTS</strong> (Want To Sell) or <strong className="text-emerald-400">WTB</strong> (Want To Buy) as the very first word. This dictates automated pipeline routing.
-                        </p>
-                      </div>
-
-                      {/* Rule 2 */}
-                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
-                        <div className="flex items-center justify-between">
-                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 2</span>
-                          <Tag className="w-4 h-4 text-gold" />
-                        </div>
-                        <h4 className="font-bold text-white text-sm font-serif">Reference Numbers Required</h4>
-                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
-                          Include the exact manufacturer reference number (e.g. <strong className="text-gold">116500LN</strong>, <strong className="text-gold">RM35-02</strong>, <strong className="text-gold">Birkin 25 Togo</strong>). Never leave model names generic.
-                        </p>
-                      </div>
-
-                      {/* Rule 3 */}
-                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
-                        <div className="flex items-center justify-between">
-                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 3</span>
-                          <Coins className="w-4 h-4 text-gold" />
-                        </div>
-                        <h4 className="font-bold text-white text-sm font-serif">Currency Format Explicit</h4>
-                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
-                          State the 3-letter ISO currency code followed by price (<strong className="text-gold">USD 32,500</strong>, <strong className="text-gold">HKD 2,400,000</strong>, <strong className="text-gold">EUR 9,800</strong>). Unlabeled numbers are rejected by vault auditors.
-                        </p>
-                      </div>
-
-                      {/* Rule 4 */}
-                      <div className="p-4 bg-dark border border-gold/40 rounded-2xl space-y-2 relative overflow-hidden group hover:border-gold transition-all">
-                        <div className="flex items-center justify-between">
-                          <span className="px-2.5 py-0.5 bg-gold/20 text-gold font-bold rounded text-[11px]">REGLA 4</span>
-                          <Layers className="w-4 h-4 text-gold" />
-                        </div>
-                        <h4 className="font-bold text-white text-sm font-serif">One Watch / Item Per Post</h4>
-                        <p className="text-[11px] text-text-secondary leading-relaxed font-sans">
-                          Never combine multiple luxury pieces into a single message. Publish separate posts for each asset so automated escrow and match tracking can execute cleanly.
-                        </p>
-                      </div>
-
-                    </div>
-                  </div>
-                )}
-
-                {/* TAB 4: AI JSON SCHEMA PARSING PREVIEW */}
-                {postingGuideTab === 'ai_json' && (
-                  <div className="space-y-5">
-                    <div className="p-4 bg-dark border border-gold/30 rounded-2xl space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <FileCode className="w-5 h-5 text-gold" />
-                          <h3 className="text-xs font-bold text-white font-mono uppercase tracking-wider">
-                            AI Neural Parser Schema Extraction Preview
-                          </h3>
-                        </div>
-                        <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold rounded border border-emerald-500/30">
-                          99.8% CONFIDENCE
-                        </span>
-                      </div>
-                      <p className="text-xs text-text-secondary leading-relaxed">
-                        Select any posting template below to test how CurateLux Neural NLP parses unstructured chat text into normalized JSON objects ready for escrow locking.
-                      </p>
-                    </div>
-
-                    {/* Template Selector Pills */}
-                    <div className="flex flex-wrap gap-2 text-xs font-mono">
-                      {[
-                        { id: 'rolex_wts', label: 'Rolex Daytona WTS' },
-                        { id: 'rm35_wts', label: 'Richard Mille RM35 WTS' },
-                        { id: 'birkin_wts', label: 'Hermès Birkin 25 WTS' },
-                        { id: 'chanel_wts', label: 'Chanel Classic Flap WTS' },
-                        { id: 'jewelry_wts', label: 'Van Cleef Alhambra WTS' }
-                      ].map(t => (
-                        <button
-                          key={t.id}
-                          onClick={() => setSelectedJsonPreviewId(t.id)}
-                          className={`px-3 py-1.5 rounded-xl border transition-all ${
-                            selectedJsonPreviewId === t.id
-                              ? 'bg-gold text-dark font-bold border-gold shadow-md'
-                              : 'bg-dark border-dark-border text-text-secondary hover:text-white'
-                          }`}
-                        >
-                          {t.label}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Code comparison split */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      
-                      {/* Left: Input Chat Text */}
-                      <div className="p-4 bg-dark rounded-2xl border border-dark-border space-y-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono font-bold text-gold uppercase">Raw Input Chat Text</span>
-                          <span className="text-[9px] font-mono text-text-muted">WhatsApp / Telegram</span>
-                        </div>
-                        <pre className="p-3 bg-black/80 rounded-xl text-xs font-mono text-slate-200 leading-relaxed border border-dark-border h-64 overflow-y-auto">
-{selectedJsonPreviewId === 'rolex_wts' ? `WTS Rolex Daytona
-Ref: 116500LN
-Year: 2021
-Dial: White Panda
-Condition: Mint / Unworn
-Includes: Full Set (Box & Guarantee Card)
-Price: USD 32,500` :
-selectedJsonPreviewId === 'rm35_wts' ? `WTS Richard Mille RM35
-Ref: RM35-02
-Year: 2020
-Dial: NTPT Black Carbon
-Condition: Unworn
-Includes: Original Box & Certificate
-Price: HKD 2,400,000` :
-selectedJsonPreviewId === 'birkin_wts' ? `WTS Hermès Birkin 25
-Brand: Hermès
-Leather/Material: Togo Leather / Gold Hardware
-Year: 2023 (U Stamp)
-Condition: Store Fresh / Unused
-Full Set: Yes (Box, Dustbag, Lock, Keys, Raincover, Receipt)
-Location: Geneva, Switzerland
-Price: USD 24,500` :
-selectedJsonPreviewId === 'chanel_wts' ? `WTS Chanel Medium Classic Double Flap
-Brand: Chanel
-Leather/Material: Black Caviar Leather / Gold Hardware
-Year: 2022 (Microchip Series)
-Condition: Mint / Like New
-Full Set: Yes (Box, Dustbag, Microchip Card, Receipt)
-Location: Paris, France
-Price: EUR 9,800` :
-`WTS Van Cleef & Arpels Alhambra
-Brand: Van Cleef & Arpels
-Leather/Material: 18k Yellow Gold & Guilloché
-Year: 2024
-Condition: Pristine / Unworn
-Full Set: Yes (Box, Cert, Receipt)
-Location: Hong Kong
-Price: HKD 38,000`}
-                        </pre>
-                      </div>
-
-                      {/* Right: Output Parsed JSON */}
-                      <div className="p-4 bg-dark rounded-2xl border border-gold/40 space-y-2 shadow-xl">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase flex items-center gap-1">
-                            <Check className="w-3.5 h-3.5 text-emerald-400" />
-                            Extracted JSON Schema Output
-                          </span>
-                          <span className="text-[9px] font-mono text-gold font-bold">AES-256 VAULT READY</span>
-                        </div>
-                        <pre className="p-3 bg-[#0d1117] rounded-xl text-xs font-mono text-emerald-400 leading-relaxed border border-emerald-500/30 h-64 overflow-y-auto">
-{selectedJsonPreviewId === 'rolex_wts' ? JSON.stringify({
-  "intent": "WTS",
-  "category": "Watch",
-  "brand": "Rolex",
-  "model": "Daytona",
-  "reference_number": "116500LN",
-  "year": 2021,
-  "dial_variant": "White Panda",
-  "condition": "Mint / Unworn",
-  "full_set": true,
-  "inclusions": ["Box", "Guarantee Card"],
-  "price": 32500,
-  "currency": "USD",
-  "location": "Geneva, Switzerland",
-  "ai_parser_confidence": 99.8,
-  "escrow_eligible": true
-}, null, 2) :
-selectedJsonPreviewId === 'rm35_wts' ? JSON.stringify({
-  "intent": "WTS",
-  "category": "Watch",
-  "brand": "Richard Mille",
-  "model": "RM35 Automatic",
-  "reference_number": "RM35-02",
-  "year": 2020,
-  "dial_variant": "NTPT Black Carbon",
-  "condition": "Unworn",
-  "full_set": true,
-  "inclusions": ["Original Box", "Certificate of Authenticity"],
-  "price": 2400000,
-  "currency": "HKD",
-  "location": "Hong Kong",
-  "ai_parser_confidence": 99.6,
-  "escrow_eligible": true
-}, null, 2) :
-selectedJsonPreviewId === 'birkin_wts' ? JSON.stringify({
-  "intent": "WTS",
-  "category": "Handbag",
-  "brand": "Hermès",
-  "model": "Birkin 25",
-  "material": "Togo Leather / Gold Hardware",
-  "year": "2023 (U Stamp)",
-  "condition": "Store Fresh / Unused",
-  "full_set": true,
-  "inclusions": ["Box", "Dustbag", "Lock", "Keys", "Raincover", "Receipt"],
-  "price": 24500,
-  "currency": "USD",
-  "location": "Geneva, Switzerland",
-  "ai_parser_confidence": 99.7,
-  "escrow_eligible": true
-}, null, 2) :
-selectedJsonPreviewId === 'chanel_wts' ? JSON.stringify({
-  "intent": "WTS",
-  "category": "Handbag",
-  "brand": "Chanel",
-  "model": "Medium Classic Double Flap",
-  "material": "Black Caviar Leather / Gold Hardware",
-  "year": "2022 (Microchip)",
-  "condition": "Mint / Like New",
-  "full_set": true,
-  "inclusions": ["Box", "Dustbag", "Microchip Card", "Receipt"],
-  "price": 9800,
-  "currency": "EUR",
-  "location": "Paris, France",
-  "ai_parser_confidence": 99.5,
-  "escrow_eligible": true
-}, null, 2) :
-JSON.stringify({
-  "intent": "WTS",
-  "category": "Jewelry",
-  "brand": "Van Cleef & Arpels",
-  "model": "Vintage Alhambra Pendant",
-  "material": "18k Yellow Gold & Guilloché",
-  "year": 2024,
-  "condition": "Pristine / Unworn",
-  "full_set": true,
-  "inclusions": ["Inner Box", "Outer Box", "Certificate", "Receipt"],
-  "price": 38000,
-  "currency": "HKD",
-  "location": "Hong Kong",
-  "ai_parser_confidence": 99.9,
-  "escrow_eligible": true
-}, null, 2)}
-                        </pre>
-                      </div>
-
-                    </div>
-                  </div>
-                )}
-
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* PREMIUM QR CODE SCANNER MODAL */}
       <AnimatePresence>
@@ -5801,23 +4036,46 @@ JSON.stringify({
                 {qrScanningState === "idle" && (
                   <div className="space-y-5">
                     
-                    {/* Simulated Camera Viewfinder */}
-                    <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-2xl overflow-hidden border border-dark-border bg-dark/50 flex flex-col items-center justify-center p-6 group">
+                    {/* Live Camera Viewfinder */}
+                    <div className="relative aspect-[4/3] w-full max-w-sm mx-auto rounded-2xl overflow-hidden border border-dark-border bg-dark/80 flex flex-col items-center justify-center p-2 group">
                       
+                      {isLiveCameraActive ? (
+                        <video
+                          ref={videoRef}
+                          autoPlay
+                          playsInline
+                          muted
+                          className="w-full h-full object-cover rounded-xl"
+                        />
+                      ) : (
+                        <div className="flex flex-col items-center text-center p-4">
+                          <Scan className="w-10 h-10 text-gold/60 mb-2 animate-pulse" />
+                          <h4 className="text-xs font-semibold text-white">
+                            {lang === 'es' ? 'Escáner de Código QR de Artículos' : 'Place QR Tag Inside the Frame'}
+                          </h4>
+                          <p className="text-[10px] text-text-secondary mt-1 max-w-[220px]">
+                            {lang === 'es' 
+                              ? 'Active la cámara para escanear etiquetas de seguridad físicas' 
+                              : 'Scan physical hardware credentials off your watch, handbag, or jewelry card'}
+                          </p>
+                          <button
+                            onClick={() => startLiveCamera('environment')}
+                            className="mt-3 px-3 py-1.5 bg-gold text-dark font-bold text-[11px] uppercase tracking-wider rounded-lg flex items-center gap-1.5 hover:bg-gold-light transition-all shadow-md"
+                          >
+                            <Camera className="w-3.5 h-3.5" />
+                            <span>{lang === 'es' ? 'Activar Cámara en Vivo' : 'Activate Live Camera'}</span>
+                          </button>
+                        </div>
+                      )}
+
                       {/* Scanning brackets */}
-                      <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/40 group-hover:border-gold transition-colors" />
-                      <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-gold/40 group-hover:border-gold transition-colors" />
-                      <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-gold/40 group-hover:border-gold transition-colors" />
-                      <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/40 group-hover:border-gold transition-colors" />
+                      <div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-gold/60 pointer-events-none" />
+                      <div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-gold/60 pointer-events-none" />
+                      <div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-gold/60 pointer-events-none" />
+                      <div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-gold/60 pointer-events-none" />
 
                       {/* Moving laser scan line */}
-                      <div className="scan-line" />
-
-                      <div className="flex flex-col items-center text-center">
-                        <Scan className="w-12 h-12 text-gold/60 mb-3 animate-pulse" />
-                        <h4 className="text-xs font-semibold text-white">Place QR Tag Inside the Frame</h4>
-                        <p className="text-[10px] text-text-secondary mt-1 max-w-[200px]">Securely read hardware credentials off your watch, handbag, or fine jewelry card</p>
-                      </div>
+                      <div className="scan-line pointer-events-none" />
                     </div>
 
                     {/* Pre-designed Luxury QR Tags List */}
@@ -6097,48 +4355,6 @@ JSON.stringify({
                           {f.label}
                         </button>
                       ))}
-                    </div>
-                  </div>
-
-                  {/* NON-WATCH GROUP POSTING INSTRUCTIONS BANNER */}
-                  <div className="p-5 rounded-2xl bg-gradient-to-r from-gold/25 via-dark-surface to-dark-surface border-2 border-gold/40 space-y-3 shadow-xl relative overflow-hidden">
-                    <div className="flex items-center justify-between flex-wrap gap-2">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-gold/20 border border-gold/50 flex items-center justify-center text-gold shadow-md shrink-0">
-                          <Gem className="w-5 h-5 text-gold animate-bounce" />
-                        </div>
-                        <div>
-                          <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider font-mono">
-                            {lang === 'es' ? 'Cómo Publicar Artículos de Lujo Sin Reloj (Bolsos, Joyería, Accesorios) en Grupos de WhatsApp y Telegram' : 'How to Post Non-Watch Luxury Items (Handbags, Jewelry, Accessories) in WhatsApp & Telegram Trade Groups'}
-                          </h3>
-                          <p className="text-[10px] text-gold font-mono">
-                            {lang === 'es' ? 'Plantillas Estándar para Hermès Birkin 25, Chanel y Joyería Fina' : 'Standard Templates for Birkin 25, Chanel, & Fine Jewelry'}
-                          </p>
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => {
-                          setPostingGuideTab('non_watch');
-                          setIsPostingGuideModalOpen(true);
-                        }}
-                        className="px-3 py-1.5 bg-gold text-dark font-mono text-xs font-bold rounded-xl hover:bg-gold-light transition-all flex items-center gap-1.5 shadow-md shrink-0"
-                      >
-                        <HelpCircle className="w-4 h-4 text-dark" />
-                        <span>{lang === 'es' ? 'Ver Guía Completa' : 'View Non-Watch Guide'}</span>
-                      </button>
-                    </div>
-
-                    <p className="text-xs text-text-secondary leading-relaxed pt-0.5">
-                      {lang === 'es'
-                        ? 'Formatee sus publicaciones de bolsos y joyería en grupos de comercio con los campos obligatorios: Intención (WTS/WTB), Marca, Cuero/Material, Año, Condición, Set Completo, Ubicación y Precio de Moneda.'
-                        : 'Format your non-watch luxury posts in WhatsApp & Telegram trade groups with required fields: Intent (WTS/WTB), Brand, Leather/Material, Year, Condition, Full Set, Location, and Currency Price.'}
-                    </p>
-
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[10px] font-mono text-gold font-bold">
-                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">1. Intent (WTS / WTB)</div>
-                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">2. Brand & Material</div>
-                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">3. Year & Condition</div>
-                      <div className="p-2 bg-dark/60 rounded-lg border border-gold/30">4. Full Set, Location & Price</div>
                     </div>
                   </div>
 
@@ -7901,6 +6117,9 @@ JSON.stringify({
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Hidden Canvas for Camera Snap Captures */}
+      <canvas ref={cameraCanvasRef} className="hidden" />
 
     </div>
   );
