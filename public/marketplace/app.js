@@ -113,13 +113,22 @@ function setupEventListeners() {
       filtered = filtered.filter(i => i.brand === brandVal);
     }
     
-    if (sortVal === 'price-desc') {
-      filtered.sort((a, b) => (parseFloat(b.price) || 0) - (parseFloat(a.price) || 0));
-    } else if (sortVal === 'price-asc') {
-      filtered.sort((a, b) => (parseFloat(a.price) || 0) - (parseFloat(b.price) || 0));
-    } else if (sortVal === 'newest') {
-      filtered.sort((a, b) => new Date(b.date_time) - new Date(a.date_time));
-    }
+    filtered.sort((a, b) => {
+      const aHasImg = !!a.full_image_url;
+      const bHasImg = !!b.full_image_url;
+      if (aHasImg !== bHasImg) {
+        return bHasImg ? 1 : -1;
+      }
+      
+      if (sortVal === 'price-desc') {
+        return (parseFloat(b.price) || 0) - (parseFloat(a.price) || 0);
+      } else if (sortVal === 'price-asc') {
+        return (parseFloat(a.price) || 0) - (parseFloat(b.price) || 0);
+      } else if (sortVal === 'newest') {
+        return new Date(b.date_time || 0) - new Date(a.date_time || 0);
+      }
+      return 0;
+    });
     
     renderGrid(filtered);
   };
