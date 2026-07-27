@@ -2439,6 +2439,18 @@ Price: USD 32,500`);
               <span className="hidden sm:inline">{lang === 'es' ? 'Guía Chat' : 'Chat Posting Guide'}</span>
             </button>
 
+            {/* THE GAZETTE EXTERNAL LINK */}
+            <a
+              href="https://the-gazette.vercel.app" // User should update this with the actual Vercel URL
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 rounded-xl bg-gold hover:bg-gold-light border border-gold text-dark text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm group"
+              title={lang === 'es' ? "Ir a The Luxury Collectibles Gazette (Sin Relojes)" : "Go to The Luxury Collectibles Gazette (Non-Watches)"}
+            >
+              <ExternalLink className="w-4 h-4 text-dark group-hover:scale-110 transition-transform" />
+              <span className="hidden sm:inline">The Gazette</span>
+            </a>
+
             {/* INVENTORY LIBRARY BUTTON */}
             <button 
               onClick={() => {
